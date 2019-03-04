@@ -104,22 +104,26 @@ namespace Amaris.Foundation.CrowdAct.NetDal.Entities
         /// <summary>
         /// Parent Address pointed by [Activity].([AddressId]) (FK_Activity_Address_AddressID)
         /// </summary>
-        [ForeignKey("AddressId")] public virtual Address Address { get; set; } // FK_Activity_Address_AddressID
+        [ForeignKey("AddressId")]
+        public virtual Address Address { get; set; } // FK_Activity_Address_AddressID
 
         /// <summary>
         /// Parent Charity pointed by [Activity].([CharityId]) (FK_Activity_Charity_CharityID)
         /// </summary>
-        [ForeignKey("CharityId"), Required] public virtual Charity Charity { get; set; } // FK_Activity_Charity_CharityID
+        [ForeignKey("CharityId"), Required]
+        public virtual Charity Charity { get; set; } // FK_Activity_Charity_CharityID
 
         /// <summary>
         /// Parent Category pointed by [Activity].([FieldId]) (FK_Activity_Category_FieldID)
         /// </summary>
-        [ForeignKey("FieldId")] public virtual Category Category { get; set; } // FK_Activity_Category_FieldID
+        [ForeignKey("FieldId")]
+        public virtual Category Category { get; set; } // FK_Activity_Category_FieldID
 
         /// <summary>
         /// Parent Type pointed by [Activity].([TypeId]) (FK_Activity_Type_TypeID)
         /// </summary>
-        [ForeignKey("TypeId")] public virtual Type Type { get; set; } // FK_Activity_Type_TypeID
+        [ForeignKey("TypeId")]
+        public virtual Type Type { get; set; } // FK_Activity_Type_TypeID
 
         public Activity()
         {
