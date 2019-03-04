@@ -12,7 +12,7 @@
 #pragma warning disable 1591    //  Ignore "Missing XML Comment" warning
 
 
-namespace Amaris.Foundation.CrowdAct.NetDal.Contexts
+namespace AmaFon.CrowdAct.Net.DataLayer.Contexts
 {
     using Configurations;
     using Entities;

@@ -12,7 +12,7 @@
 #pragma warning disable 1591    //  Ignore "Missing XML Comment" warning
 
 
-namespace Amaris.Foundation.CrowdAct.NetDal.Contexts
+namespace AmaFon.CrowdAct.Net.DataLayer.Contexts
 {
     using Configurations;
     using Entities;
@@ -26,7 +26,7 @@ namespace Amaris.Foundation.CrowdAct.NetDal.Contexts
     [System.CodeDom.Compiler.GeneratedCode("EF.Reverse.POCO.Generator", "2.37.2.0")]
     public class FakeCrowdActDbContext : ICrowdActDbContext
     {
-        public System.Data.Entity.DbSet<AccountStatu> AccountStatus { get; set; }
+        public System.Data.Entity.DbSet<AccountStatus> AccountStatus { get; set; }
         public System.Data.Entity.DbSet<Activity> Activities { get; set; }
         public System.Data.Entity.DbSet<ActivityLanguage> ActivityLanguages { get; set; }
         public System.Data.Entity.DbSet<ActivityParticipant> ActivityParticipants { get; set; }
@@ -37,12 +37,12 @@ namespace Amaris.Foundation.CrowdAct.NetDal.Contexts
         public System.Data.Entity.DbSet<Country> Countries { get; set; }
         public System.Data.Entity.DbSet<EfMigrationsHistory> EfMigrationsHistories { get; set; }
         public System.Data.Entity.DbSet<Language> Languages { get; set; }
-        public System.Data.Entity.DbSet<ParticipantStatu> ParticipantStatus { get; set; }
+        public System.Data.Entity.DbSet<ParticipantStatus> ParticipantStatus { get; set; }
         public System.Data.Entity.DbSet<Requirement> Requirements { get; set; }
-        public System.Data.Entity.DbSet<RequirementStatu> RequirementStatus { get; set; }
+        public System.Data.Entity.DbSet<RequirementStatus> RequirementStatus { get; set; }
         public System.Data.Entity.DbSet<ResourceType> ResourceTypes { get; set; }
         public System.Data.Entity.DbSet<Skill> Skills { get; set; }
-        public System.Data.Entity.DbSet<Entities.Type> Types { get; set; }
+        public System.Data.Entity.DbSet<Entities.Type> ActivityTypes { get; set; }
         public System.Data.Entity.DbSet<User> Users { get; set; }
 
         public FakeCrowdActDbContext()
@@ -51,7 +51,7 @@ namespace Amaris.Foundation.CrowdAct.NetDal.Contexts
             _configuration = null;
             _database = null;
 
-            AccountStatus = new FakeDbSet<AccountStatu>("Id");
+            AccountStatus = new FakeDbSet<AccountStatus>("Id");
             Activities = new FakeDbSet<Activity>("Id");
             ActivityLanguages = new FakeDbSet<ActivityLanguage>("ActivityId", "LanguageId");
             ActivityParticipants = new FakeDbSet<ActivityParticipant>("ActivityId", "ParticipantId");
@@ -62,12 +62,12 @@ namespace Amaris.Foundation.CrowdAct.NetDal.Contexts
             Countries = new FakeDbSet<Country>("Id");
             EfMigrationsHistories = new FakeDbSet<EfMigrationsHistory>("MigrationId");
             Languages = new FakeDbSet<Language>("Id");
-            ParticipantStatus = new FakeDbSet<ParticipantStatu>("Id");
+            ParticipantStatus = new FakeDbSet<ParticipantStatus>("Id");
             Requirements = new FakeDbSet<Requirement>("Id");
-            RequirementStatus = new FakeDbSet<RequirementStatu>("Id");
+            RequirementStatus = new FakeDbSet<RequirementStatus>("Id");
             ResourceTypes = new FakeDbSet<ResourceType>("Id");
             Skills = new FakeDbSet<Skill>("Id");
-            Types = new FakeDbSet<Entities.Type>("Id");
+            ActivityTypes = new FakeDbSet<Entities.Type>("Id");
             Users = new FakeDbSet<User>("Id");
         }
 

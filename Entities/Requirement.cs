@@ -14,7 +14,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Amaris.Foundation.CrowdAct.NetDal.Entities
+namespace AmaFon.CrowdAct.Net.DataLayer.Entities
 {
 
     // Requirement
@@ -68,9 +68,9 @@ namespace Amaris.Foundation.CrowdAct.NetDal.Entities
         [ForeignKey("ActivityId"), Required] public virtual Activity Activity { get; set; } // FK_Requirement_Activity_ActivityID
 
         /// <summary>
-        /// Parent RequirementStatu pointed by [Requirement].([RequirementStatusId]) (FK_Requirement_RequirementStatus_RequirementStatusID)
+        /// Parent RequirementStatus pointed by [Requirement].([RequirementStatusId]) (FK_Requirement_RequirementStatus_RequirementStatusID)
         /// </summary>
-        [ForeignKey("RequirementStatusId")] public virtual RequirementStatu RequirementStatu { get; set; } // FK_Requirement_RequirementStatus_RequirementStatusID
+        [ForeignKey("RequirementStatusId")] public virtual RequirementStatus RequirementStatus { get; set; } // FK_Requirement_RequirementStatus_RequirementStatusID
 
         /// <summary>
         /// Parent ResourceType pointed by [Requirement].([ResourceTypeId]) (FK_Requirement_ResourceType_ResourceTypeID)

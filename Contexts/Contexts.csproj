@@ -7,8 +7,8 @@
     <ProjectGuid>{F468E546-79DE-42A7-A637-1C82D47A7442}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Amaris.Foundation.CrowdAct.NetDal.Contexts</RootNamespace>
-    <AssemblyName>Amaris.Foundation.CrowdAct.NetDal.Contexts</AssemblyName>
+    <RootNamespace>AmaFon.CrowdAct.Net.DataLayer.Contexts</RootNamespace>
+    <AssemblyName>AmaFon.CrowdAct.Net.DataLayer.Contexts</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>

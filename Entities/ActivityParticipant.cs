@@ -14,7 +14,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Amaris.Foundation.CrowdAct.NetDal.Entities
+namespace AmaFon.CrowdAct.Net.DataLayer.Entities
 {
 
     // ActivityParticipant
@@ -57,9 +57,9 @@ namespace Amaris.Foundation.CrowdAct.NetDal.Entities
         [ForeignKey("ParticipantId"), Required] public virtual User User { get; set; } // FK_ActivityParticipant_User_ParticipantID
 
         /// <summary>
-        /// Parent ParticipantStatu pointed by [ActivityParticipant].([ParticipantStatusId]) (FK_ActivityParticipant_ParticipantStatus_ParticipantStatusID)
+        /// Parent ParticipantStatus pointed by [ActivityParticipant].([ParticipantStatusId]) (FK_ActivityParticipant_ParticipantStatus_ParticipantStatusID)
         /// </summary>
-        [ForeignKey("ParticipantStatusId")] public virtual ParticipantStatu ParticipantStatu { get; set; } // FK_ActivityParticipant_ParticipantStatus_ParticipantStatusID
+        [ForeignKey("ParticipantStatusId")] public virtual ParticipantStatus ParticipantStatus { get; set; } // FK_ActivityParticipant_ParticipantStatus_ParticipantStatusID
     }
 
 }

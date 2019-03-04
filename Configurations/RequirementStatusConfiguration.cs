@@ -14,7 +14,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Amaris.Foundation.CrowdAct.NetDal.Configurations
+namespace AmaFon.CrowdAct.Net.DataLayer.Configurations
 {
     using Entities;
     using Interfaces;
@@ -24,14 +24,14 @@ namespace Amaris.Foundation.CrowdAct.NetDal.Configurations
 
     // RequirementStatus
     [System.CodeDom.Compiler.GeneratedCode("EF.Reverse.POCO.Generator", "2.37.2.0")]
-    public class RequirementStatuConfiguration : System.Data.Entity.ModelConfiguration.EntityTypeConfiguration<RequirementStatu>
+    public class RequirementStatusConfiguration : System.Data.Entity.ModelConfiguration.EntityTypeConfiguration<RequirementStatus>
     {
-        public RequirementStatuConfiguration()
+        public RequirementStatusConfiguration()
             : this("dbo")
         {
         }
 
-        public RequirementStatuConfiguration(string schema)
+        public RequirementStatusConfiguration(string schema)
         {
         }
     }

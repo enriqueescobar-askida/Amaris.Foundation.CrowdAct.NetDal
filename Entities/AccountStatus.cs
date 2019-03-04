@@ -14,24 +14,24 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Amaris.Foundation.CrowdAct.NetDal.Entities
+namespace AmaFon.CrowdAct.Net.DataLayer.Entities
 {
 
-    // ParticipantStatus
-    [Table("ParticipantStatus", Schema = "dbo")]
+    // AccountStatus
+    [Table("AccountStatus", Schema = "dbo")]
     [System.CodeDom.Compiler.GeneratedCode("EF.Reverse.POCO.Generator", "2.37.2.0")]
-    public class ParticipantStatu
+    public class AccountStatus
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column(@"ID", Order = 1, TypeName = "int")]
-        [Index(@"PK_ParticipantStatus", 1, IsUnique = true, IsClustered = true)]
+        [Index(@"PK_AccountStatus", 1, IsUnique = true, IsClustered = true)]
         [Required]
         [Key]
         [Display(Name = "Id")]
         public int Id { get; set; } // ID (Primary key)
 
         [Column(@"Label", Order = 2, TypeName = "nvarchar")]
-        [Index(@"AK_ParticipantStatus_Label", 1, IsUnique = true, IsClustered = false)]
+        [Index(@"AK_AccountStatus_Label", 1, IsUnique = true, IsClustered = false)]
         [Required(AllowEmptyStrings = true)]
         [MaxLength(450)]
         [StringLength(450)]
@@ -41,13 +41,13 @@ namespace Amaris.Foundation.CrowdAct.NetDal.Entities
         // Reverse navigation
 
         /// <summary>
-        /// Child ActivityParticipants where [ActivityParticipant].[ParticipantStatusID] point to this entity (FK_ActivityParticipant_ParticipantStatus_ParticipantStatusID)
+        /// Child Users where [User].[AccountStatusID] point to this entity (FK_User_AccountStatus_AccountStatusID)
         /// </summary>
-        public virtual System.Collections.Generic.ICollection<ActivityParticipant> ActivityParticipants { get; set; } // ActivityParticipant.FK_ActivityParticipant_ParticipantStatus_ParticipantStatusID
+        public virtual System.Collections.Generic.ICollection<User> Users { get; set; } // User.FK_User_AccountStatus_AccountStatusID
 
-        public ParticipantStatu()
+        public AccountStatus()
         {
-            ActivityParticipants = new System.Collections.Generic.List<ActivityParticipant>();
+            Users = new System.Collections.Generic.List<User>();
         }
     }
 

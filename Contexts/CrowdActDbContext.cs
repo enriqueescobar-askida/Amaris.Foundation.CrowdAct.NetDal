@@ -12,7 +12,7 @@
 #pragma warning disable 1591    //  Ignore "Missing XML Comment" warning
 
 
-namespace Amaris.Foundation.CrowdAct.NetDal.Contexts
+namespace AmaFon.CrowdAct.Net.DataLayer.Contexts
 {
     using Configurations;
     using Entities;
@@ -26,7 +26,7 @@ namespace Amaris.Foundation.CrowdAct.NetDal.Contexts
     [System.CodeDom.Compiler.GeneratedCode("EF.Reverse.POCO.Generator", "2.37.2.0")]
     public class CrowdActDbContext : System.Data.Entity.DbContext, ICrowdActDbContext
     {
-        public System.Data.Entity.DbSet<AccountStatu> AccountStatus { get; set; } // AccountStatus
+        public System.Data.Entity.DbSet<AccountStatus> AccountStatus { get; set; } // AccountStatus
         public System.Data.Entity.DbSet<Activity> Activities { get; set; } // Activity
         public System.Data.Entity.DbSet<ActivityLanguage> ActivityLanguages { get; set; } // ActivityLanguage
         public System.Data.Entity.DbSet<ActivityParticipant> ActivityParticipants { get; set; } // ActivityParticipant
@@ -37,12 +37,12 @@ namespace Amaris.Foundation.CrowdAct.NetDal.Contexts
         public System.Data.Entity.DbSet<Country> Countries { get; set; } // Country
         public System.Data.Entity.DbSet<EfMigrationsHistory> EfMigrationsHistories { get; set; } // __EFMigrationsHistory
         public System.Data.Entity.DbSet<Language> Languages { get; set; } // Language
-        public System.Data.Entity.DbSet<ParticipantStatu> ParticipantStatus { get; set; } // ParticipantStatus
+        public System.Data.Entity.DbSet<ParticipantStatus> ParticipantStatus { get; set; } // ParticipantStatus
         public System.Data.Entity.DbSet<Requirement> Requirements { get; set; } // Requirement
-        public System.Data.Entity.DbSet<RequirementStatu> RequirementStatus { get; set; } // RequirementStatus
+        public System.Data.Entity.DbSet<RequirementStatus> RequirementStatus { get; set; } // RequirementStatus
         public System.Data.Entity.DbSet<ResourceType> ResourceTypes { get; set; } // ResourceType
         public System.Data.Entity.DbSet<Skill> Skills { get; set; } // Skill
-        public System.Data.Entity.DbSet<Entities.Type> Types { get; set; } // Type
+        public System.Data.Entity.DbSet<Entities.Type> ActivityTypes { get; set; } // Type
         public System.Data.Entity.DbSet<User> Users { get; set; } // User
 
         static CrowdActDbContext()
@@ -93,7 +93,7 @@ namespace Amaris.Foundation.CrowdAct.NetDal.Contexts
         {
             base.OnModelCreating(modelBuilder);
 
-            modelBuilder.Configurations.Add(new AccountStatuConfiguration());
+            modelBuilder.Configurations.Add(new AccountStatusConfiguration());
             modelBuilder.Configurations.Add(new ActivityConfiguration());
             modelBuilder.Configurations.Add(new ActivityLanguageConfiguration());
             modelBuilder.Configurations.Add(new ActivityParticipantConfiguration());
@@ -104,9 +104,9 @@ namespace Amaris.Foundation.CrowdAct.NetDal.Contexts
             modelBuilder.Configurations.Add(new CountryConfiguration());
             modelBuilder.Configurations.Add(new EfMigrationsHistoryConfiguration());
             modelBuilder.Configurations.Add(new LanguageConfiguration());
-            modelBuilder.Configurations.Add(new ParticipantStatuConfiguration());
+            modelBuilder.Configurations.Add(new ParticipantStatusConfiguration());
             modelBuilder.Configurations.Add(new RequirementConfiguration());
-            modelBuilder.Configurations.Add(new RequirementStatuConfiguration());
+            modelBuilder.Configurations.Add(new RequirementStatusConfiguration());
             modelBuilder.Configurations.Add(new ResourceTypeConfiguration());
             modelBuilder.Configurations.Add(new SkillConfiguration());
             modelBuilder.Configurations.Add(new TypeConfiguration());
@@ -115,7 +115,7 @@ namespace Amaris.Foundation.CrowdAct.NetDal.Contexts
 
         public static System.Data.Entity.DbModelBuilder CreateModel(System.Data.Entity.DbModelBuilder modelBuilder, string schema)
         {
-            modelBuilder.Configurations.Add(new AccountStatuConfiguration(schema));
+            modelBuilder.Configurations.Add(new AccountStatusConfiguration(schema));
             modelBuilder.Configurations.Add(new ActivityConfiguration(schema));
             modelBuilder.Configurations.Add(new ActivityLanguageConfiguration(schema));
             modelBuilder.Configurations.Add(new ActivityParticipantConfiguration(schema));
@@ -126,9 +126,9 @@ namespace Amaris.Foundation.CrowdAct.NetDal.Contexts
             modelBuilder.Configurations.Add(new CountryConfiguration(schema));
             modelBuilder.Configurations.Add(new EfMigrationsHistoryConfiguration(schema));
             modelBuilder.Configurations.Add(new LanguageConfiguration(schema));
-            modelBuilder.Configurations.Add(new ParticipantStatuConfiguration(schema));
+            modelBuilder.Configurations.Add(new ParticipantStatusConfiguration(schema));
             modelBuilder.Configurations.Add(new RequirementConfiguration(schema));
-            modelBuilder.Configurations.Add(new RequirementStatuConfiguration(schema));
+            modelBuilder.Configurations.Add(new RequirementStatusConfiguration(schema));
             modelBuilder.Configurations.Add(new ResourceTypeConfiguration(schema));
             modelBuilder.Configurations.Add(new SkillConfiguration(schema));
             modelBuilder.Configurations.Add(new TypeConfiguration(schema));

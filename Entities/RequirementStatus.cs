@@ -14,24 +14,24 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Amaris.Foundation.CrowdAct.NetDal.Entities
+namespace AmaFon.CrowdAct.Net.DataLayer.Entities
 {
 
-    // AccountStatus
-    [Table("AccountStatus", Schema = "dbo")]
+    // RequirementStatus
+    [Table("RequirementStatus", Schema = "dbo")]
     [System.CodeDom.Compiler.GeneratedCode("EF.Reverse.POCO.Generator", "2.37.2.0")]
-    public class AccountStatu
+    public class RequirementStatus
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column(@"ID", Order = 1, TypeName = "int")]
-        [Index(@"PK_AccountStatus", 1, IsUnique = true, IsClustered = true)]
+        [Index(@"PK_RequirementStatus", 1, IsUnique = true, IsClustered = true)]
         [Required]
         [Key]
         [Display(Name = "Id")]
         public int Id { get; set; } // ID (Primary key)
 
         [Column(@"Label", Order = 2, TypeName = "nvarchar")]
-        [Index(@"AK_AccountStatus_Label", 1, IsUnique = true, IsClustered = false)]
+        [Index(@"AK_RequirementStatus_Label", 1, IsUnique = true, IsClustered = false)]
         [Required(AllowEmptyStrings = true)]
         [MaxLength(450)]
         [StringLength(450)]
@@ -41,13 +41,13 @@ namespace Amaris.Foundation.CrowdAct.NetDal.Entities
         // Reverse navigation
 
         /// <summary>
-        /// Child Users where [User].[AccountStatusID] point to this entity (FK_User_AccountStatus_AccountStatusID)
+        /// Child Requirements where [Requirement].[RequirementStatusID] point to this entity (FK_Requirement_RequirementStatus_RequirementStatusID)
         /// </summary>
-        public virtual System.Collections.Generic.ICollection<User> Users { get; set; } // User.FK_User_AccountStatus_AccountStatusID
+        public virtual System.Collections.Generic.ICollection<Requirement> Requirements { get; set; } // Requirement.FK_Requirement_RequirementStatus_RequirementStatusID
 
-        public AccountStatu()
+        public RequirementStatus()
         {
-            Users = new System.Collections.Generic.List<User>();
+            Requirements = new System.Collections.Generic.List<Requirement>();
         }
     }
 

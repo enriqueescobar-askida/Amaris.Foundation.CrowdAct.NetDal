@@ -14,7 +14,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Amaris.Foundation.CrowdAct.NetDal.Entities
+namespace AmaFon.CrowdAct.Net.DataLayer.Entities
 {
 
     // Skill

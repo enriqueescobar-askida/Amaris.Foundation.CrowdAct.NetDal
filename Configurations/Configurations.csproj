@@ -7,8 +7,8 @@
     <ProjectGuid>{0827E2D7-01B2-4340-B06D-499848DC6920}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Amaris.Foundation.CrowdAct.NetDal.Configurations</RootNamespace>
-    <AssemblyName>Amaris.Foundation.CrowdAct.NetDal.Configurations</AssemblyName>
+    <RootNamespace>AmaFon.CrowdAct.Net.DataLayer.Configurations</RootNamespace>
+    <AssemblyName>AmaFon.CrowdAct.Net.DataLayer.Configurations</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -49,7 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AccountStatuConfiguration.cs">
+    <Compile Include="AccountStatusConfiguration.cs">
       <DependentUpon>CrowdActDatabase.tt</DependentUpon>
     </Compile>
     <Compile Include="ActivityConfiguration.cs">
@@ -87,14 +87,14 @@
     <Compile Include="LanguageConfiguration.cs">
       <DependentUpon>CrowdActDatabase.tt</DependentUpon>
     </Compile>
-    <Compile Include="ParticipantStatuConfiguration.cs">
+    <Compile Include="ParticipantStatusConfiguration.cs">
       <DependentUpon>CrowdActDatabase.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RequirementConfiguration.cs">
       <DependentUpon>CrowdActDatabase.tt</DependentUpon>
     </Compile>
-    <Compile Include="RequirementStatuConfiguration.cs">
+    <Compile Include="RequirementStatusConfiguration.cs">
       <DependentUpon>CrowdActDatabase.tt</DependentUpon>
     </Compile>
     <Compile Include="ResourceTypeConfiguration.cs">

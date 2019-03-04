@@ -14,7 +14,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Amaris.Foundation.CrowdAct.NetDal.Entities
+namespace AmaFon.CrowdAct.Net.DataLayer.Entities
 {
 
     // User
@@ -94,9 +94,9 @@ namespace Amaris.Foundation.CrowdAct.NetDal.Entities
         // Foreign keys
 
         /// <summary>
-        /// Parent AccountStatu pointed by [User].([AccountStatusId]) (FK_User_AccountStatus_AccountStatusID)
+        /// Parent AccountStatus pointed by [User].([AccountStatusId]) (FK_User_AccountStatus_AccountStatusID)
         /// </summary>
-        [ForeignKey("AccountStatusId")] public virtual AccountStatu AccountStatu { get; set; } // FK_User_AccountStatus_AccountStatusID
+        [ForeignKey("AccountStatusId")] public virtual AccountStatus AccountStatus { get; set; } // FK_User_AccountStatus_AccountStatusID
 
         /// <summary>
         /// Parent Address pointed by [User].([AddressId]) (FK_User_Address_AddressID)

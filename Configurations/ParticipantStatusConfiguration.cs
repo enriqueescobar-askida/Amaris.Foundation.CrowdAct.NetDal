@@ -14,7 +14,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Amaris.Foundation.CrowdAct.NetDal.Configurations
+namespace AmaFon.CrowdAct.Net.DataLayer.Configurations
 {
     using Entities;
     using Interfaces;
@@ -24,14 +24,14 @@ namespace Amaris.Foundation.CrowdAct.NetDal.Configurations
 
     // ParticipantStatus
     [System.CodeDom.Compiler.GeneratedCode("EF.Reverse.POCO.Generator", "2.37.2.0")]
-    public class ParticipantStatuConfiguration : System.Data.Entity.ModelConfiguration.EntityTypeConfiguration<ParticipantStatu>
+    public class ParticipantStatusConfiguration : System.Data.Entity.ModelConfiguration.EntityTypeConfiguration<ParticipantStatus>
     {
-        public ParticipantStatuConfiguration()
+        public ParticipantStatusConfiguration()
             : this("dbo")
         {
         }
 
-        public ParticipantStatuConfiguration(string schema)
+        public ParticipantStatusConfiguration(string schema)
         {
         }
     }

@@ -5,7 +5,7 @@
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
-    using Amaris.Foundation.CrowdAct.NetDal.Contexts;
+    using AmaFon.CrowdAct.Net.DataLayer.Contexts;
 
     class Program
     {

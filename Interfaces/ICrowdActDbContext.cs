@@ -12,7 +12,7 @@
 #pragma warning disable 1591    //  Ignore "Missing XML Comment" warning
 
 
-namespace Amaris.Foundation.CrowdAct.NetDal.Interfaces
+namespace AmaFon.CrowdAct.Net.DataLayer.Interfaces
 {
     using Entities;
     using System;
@@ -21,7 +21,7 @@ namespace Amaris.Foundation.CrowdAct.NetDal.Interfaces
 
     public interface ICrowdActDbContext : System.IDisposable
     {
-        System.Data.Entity.DbSet<AccountStatu> AccountStatus { get; set; } // AccountStatus
+        System.Data.Entity.DbSet<AccountStatus> AccountStatus { get; set; } // AccountStatus
         System.Data.Entity.DbSet<Activity> Activities { get; set; } // Activity
         System.Data.Entity.DbSet<ActivityLanguage> ActivityLanguages { get; set; } // ActivityLanguage
         System.Data.Entity.DbSet<ActivityParticipant> ActivityParticipants { get; set; } // ActivityParticipant
@@ -32,12 +32,12 @@ namespace Amaris.Foundation.CrowdAct.NetDal.Interfaces
         System.Data.Entity.DbSet<Country> Countries { get; set; } // Country
         System.Data.Entity.DbSet<EfMigrationsHistory> EfMigrationsHistories { get; set; } // __EFMigrationsHistory
         System.Data.Entity.DbSet<Language> Languages { get; set; } // Language
-        System.Data.Entity.DbSet<ParticipantStatu> ParticipantStatus { get; set; } // ParticipantStatus
+        System.Data.Entity.DbSet<ParticipantStatus> ParticipantStatus { get; set; } // ParticipantStatus
         System.Data.Entity.DbSet<Requirement> Requirements { get; set; } // Requirement
-        System.Data.Entity.DbSet<RequirementStatu> RequirementStatus { get; set; } // RequirementStatus
+        System.Data.Entity.DbSet<RequirementStatus> RequirementStatus { get; set; } // RequirementStatus
         System.Data.Entity.DbSet<ResourceType> ResourceTypes { get; set; } // ResourceType
         System.Data.Entity.DbSet<Skill> Skills { get; set; } // Skill
-        System.Data.Entity.DbSet<Entities.Type> Types { get; set; } // Type
+        System.Data.Entity.DbSet<Entities.Type> ActivityTypes { get; set; } // Type
         System.Data.Entity.DbSet<User> Users { get; set; } // User
 
         int SaveChanges();
