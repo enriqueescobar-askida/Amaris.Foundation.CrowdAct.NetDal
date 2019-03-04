@@ -30,6 +30,7 @@ namespace AmaFon.CrowdAct.Net.DataLayer.Contexts
         public System.Data.Entity.DbSet<Activity> Activities { get; set; } // Activity
         public System.Data.Entity.DbSet<ActivityLanguage> ActivityLanguages { get; set; } // ActivityLanguage
         public System.Data.Entity.DbSet<ActivityParticipant> ActivityParticipants { get; set; } // ActivityParticipant
+        public System.Data.Entity.DbSet<ActivityType> ActivityTypes { get; set; } // ActivityType
         public System.Data.Entity.DbSet<Address> Addresses { get; set; } // Address
         public System.Data.Entity.DbSet<Category> Categories { get; set; } // Category
         public System.Data.Entity.DbSet<Charity> Charities { get; set; } // Charity
@@ -42,7 +43,6 @@ namespace AmaFon.CrowdAct.Net.DataLayer.Contexts
         public System.Data.Entity.DbSet<RequirementStatus> RequirementStatus { get; set; } // RequirementStatus
         public System.Data.Entity.DbSet<ResourceType> ResourceTypes { get; set; } // ResourceType
         public System.Data.Entity.DbSet<Skill> Skills { get; set; } // Skill
-        public System.Data.Entity.DbSet<Entities.Type> ActivityTypes { get; set; } // Type
         public System.Data.Entity.DbSet<User> Users { get; set; } // User
 
         static CrowdActDbContext()
@@ -97,6 +97,7 @@ namespace AmaFon.CrowdAct.Net.DataLayer.Contexts
             modelBuilder.Configurations.Add(new ActivityConfiguration());
             modelBuilder.Configurations.Add(new ActivityLanguageConfiguration());
             modelBuilder.Configurations.Add(new ActivityParticipantConfiguration());
+            modelBuilder.Configurations.Add(new ActivityTypeConfiguration());
             modelBuilder.Configurations.Add(new AddressConfiguration());
             modelBuilder.Configurations.Add(new CategoryConfiguration());
             modelBuilder.Configurations.Add(new CharityConfiguration());
@@ -109,7 +110,6 @@ namespace AmaFon.CrowdAct.Net.DataLayer.Contexts
             modelBuilder.Configurations.Add(new RequirementStatusConfiguration());
             modelBuilder.Configurations.Add(new ResourceTypeConfiguration());
             modelBuilder.Configurations.Add(new SkillConfiguration());
-            modelBuilder.Configurations.Add(new TypeConfiguration());
             modelBuilder.Configurations.Add(new UserConfiguration());
         }
 
@@ -119,6 +119,7 @@ namespace AmaFon.CrowdAct.Net.DataLayer.Contexts
             modelBuilder.Configurations.Add(new ActivityConfiguration(schema));
             modelBuilder.Configurations.Add(new ActivityLanguageConfiguration(schema));
             modelBuilder.Configurations.Add(new ActivityParticipantConfiguration(schema));
+            modelBuilder.Configurations.Add(new ActivityTypeConfiguration(schema));
             modelBuilder.Configurations.Add(new AddressConfiguration(schema));
             modelBuilder.Configurations.Add(new CategoryConfiguration(schema));
             modelBuilder.Configurations.Add(new CharityConfiguration(schema));
@@ -131,7 +132,6 @@ namespace AmaFon.CrowdAct.Net.DataLayer.Contexts
             modelBuilder.Configurations.Add(new RequirementStatusConfiguration(schema));
             modelBuilder.Configurations.Add(new ResourceTypeConfiguration(schema));
             modelBuilder.Configurations.Add(new SkillConfiguration(schema));
-            modelBuilder.Configurations.Add(new TypeConfiguration(schema));
             modelBuilder.Configurations.Add(new UserConfiguration(schema));
             return modelBuilder;
         }

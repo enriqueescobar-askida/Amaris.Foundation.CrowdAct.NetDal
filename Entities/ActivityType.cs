@@ -17,10 +17,10 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace AmaFon.CrowdAct.Net.DataLayer.Entities
 {
 
-    // Type
-    [Table("Type", Schema = "dbo")]
+    // ActivityType
+    [Table("ActivityType", Schema = "dbo")]
     [System.CodeDom.Compiler.GeneratedCode("EF.Reverse.POCO.Generator", "2.37.2.0")]
-    public class Type
+    public class ActivityType
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column(@"ID", Order = 1, TypeName = "int")]
@@ -42,7 +42,7 @@ namespace AmaFon.CrowdAct.Net.DataLayer.Entities
         /// </summary>
         public virtual System.Collections.Generic.ICollection<Activity> Activities { get; set; } // Activity.FK_Activity_Type_TypeID
 
-        public Type()
+        public ActivityType()
         {
             Activities = new System.Collections.Generic.List<Activity>();
         }

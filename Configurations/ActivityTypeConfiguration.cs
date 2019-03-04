@@ -22,16 +22,16 @@ namespace AmaFon.CrowdAct.Net.DataLayer.Configurations
     using System.CodeDom.Compiler;
     using System.Collections.Generic;
 
-    // Type
+    // ActivityType
     [System.CodeDom.Compiler.GeneratedCode("EF.Reverse.POCO.Generator", "2.37.2.0")]
-    public class TypeConfiguration : System.Data.Entity.ModelConfiguration.EntityTypeConfiguration<Entities.Type>
+    public class ActivityTypeConfiguration : System.Data.Entity.ModelConfiguration.EntityTypeConfiguration<ActivityType>
     {
-        public TypeConfiguration()
+        public ActivityTypeConfiguration()
             : this("dbo")
         {
         }
 
-        public TypeConfiguration(string schema)
+        public ActivityTypeConfiguration(string schema)
         {
         }
     }

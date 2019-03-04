@@ -30,6 +30,7 @@ namespace AmaFon.CrowdAct.Net.DataLayer.Contexts
         public System.Data.Entity.DbSet<Activity> Activities { get; set; }
         public System.Data.Entity.DbSet<ActivityLanguage> ActivityLanguages { get; set; }
         public System.Data.Entity.DbSet<ActivityParticipant> ActivityParticipants { get; set; }
+        public System.Data.Entity.DbSet<ActivityType> ActivityTypes { get; set; }
         public System.Data.Entity.DbSet<Address> Addresses { get; set; }
         public System.Data.Entity.DbSet<Category> Categories { get; set; }
         public System.Data.Entity.DbSet<Charity> Charities { get; set; }
@@ -42,7 +43,6 @@ namespace AmaFon.CrowdAct.Net.DataLayer.Contexts
         public System.Data.Entity.DbSet<RequirementStatus> RequirementStatus { get; set; }
         public System.Data.Entity.DbSet<ResourceType> ResourceTypes { get; set; }
         public System.Data.Entity.DbSet<Skill> Skills { get; set; }
-        public System.Data.Entity.DbSet<Entities.Type> ActivityTypes { get; set; }
         public System.Data.Entity.DbSet<User> Users { get; set; }
 
         public FakeCrowdActDbContext()
@@ -55,6 +55,7 @@ namespace AmaFon.CrowdAct.Net.DataLayer.Contexts
             Activities = new FakeDbSet<Activity>("Id");
             ActivityLanguages = new FakeDbSet<ActivityLanguage>("ActivityId", "LanguageId");
             ActivityParticipants = new FakeDbSet<ActivityParticipant>("ActivityId", "ParticipantId");
+            ActivityTypes = new FakeDbSet<ActivityType>("Id");
             Addresses = new FakeDbSet<Address>("Id");
             Categories = new FakeDbSet<Category>("Id");
             Charities = new FakeDbSet<Charity>("Id");
@@ -67,7 +68,6 @@ namespace AmaFon.CrowdAct.Net.DataLayer.Contexts
             RequirementStatus = new FakeDbSet<RequirementStatus>("Id");
             ResourceTypes = new FakeDbSet<ResourceType>("Id");
             Skills = new FakeDbSet<Skill>("Id");
-            ActivityTypes = new FakeDbSet<Entities.Type>("Id");
             Users = new FakeDbSet<User>("Id");
         }
 

@@ -117,9 +117,9 @@ namespace AmaFon.CrowdAct.Net.DataLayer.Entities
         [ForeignKey("FieldId")] public virtual Category Category { get; set; } // FK_Activity_Category_FieldID
 
         /// <summary>
-        /// Parent Type pointed by [Activity].([TypeId]) (FK_Activity_Type_TypeID)
+        /// Parent ActivityType pointed by [Activity].([TypeId]) (FK_Activity_Type_TypeID)
         /// </summary>
-        [ForeignKey("TypeId")] public virtual Type Type { get; set; } // FK_Activity_Type_TypeID
+        [ForeignKey("TypeId")] public virtual ActivityType ActivityType { get; set; } // FK_Activity_Type_TypeID
 
         public Activity()
         {

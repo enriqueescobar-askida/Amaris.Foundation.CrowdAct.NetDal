@@ -61,6 +61,9 @@
     <Compile Include="ActivityParticipantConfiguration.cs">
       <DependentUpon>CrowdActDatabase.tt</DependentUpon>
     </Compile>
+    <Compile Include="ActivityTypeConfiguration.cs">
+      <DependentUpon>CrowdActDatabase.tt</DependentUpon>
+    </Compile>
     <Compile Include="AddressConfiguration.cs">
       <DependentUpon>CrowdActDatabase.tt</DependentUpon>
     </Compile>
@@ -101,9 +104,6 @@
       <DependentUpon>CrowdActDatabase.tt</DependentUpon>
     </Compile>
     <Compile Include="SkillConfiguration.cs">
-      <DependentUpon>CrowdActDatabase.tt</DependentUpon>
-    </Compile>
-    <Compile Include="TypeConfiguration.cs">
       <DependentUpon>CrowdActDatabase.tt</DependentUpon>
     </Compile>
     <Compile Include="UserConfiguration.cs">
