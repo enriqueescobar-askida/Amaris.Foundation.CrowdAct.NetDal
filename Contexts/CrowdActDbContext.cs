@@ -11,75 +11,178 @@
 // TargetFrameworkVersion = 4.7
 #pragma warning disable 1591    //  Ignore "Missing XML Comment" warning
 
-
 namespace AmaFon.CrowdAct.Net.DataLayer.Contexts
 {
     using Configurations;
     using Entities;
     using Interfaces;
-    using System;
-    using System.CodeDom.Compiler;
-    using System.Collections.Generic;
 
-    using System.Linq;
-
+    /// <summary>
+    /// Defines the <see cref="CrowdActDbContext" />
+    /// </summary>
     [System.CodeDom.Compiler.GeneratedCode("EF.Reverse.POCO.Generator", "2.37.2.0")]
     public class CrowdActDbContext : System.Data.Entity.DbContext, ICrowdActDbContext
     {
-        public System.Data.Entity.DbSet<AccountStatus> AccountStatus { get; set; } // AccountStatus
-        public System.Data.Entity.DbSet<Activity> Activities { get; set; } // Activity
-        public System.Data.Entity.DbSet<ActivityLanguage> ActivityLanguages { get; set; } // ActivityLanguage
-        public System.Data.Entity.DbSet<ActivityParticipant> ActivityParticipants { get; set; } // ActivityParticipant
-        public System.Data.Entity.DbSet<ActivityType> ActivityTypes { get; set; } // ActivityType
-        public System.Data.Entity.DbSet<Address> Addresses { get; set; } // Address
-        public System.Data.Entity.DbSet<Category> Categories { get; set; } // Category
-        public System.Data.Entity.DbSet<Charity> Charities { get; set; } // Charity
-        public System.Data.Entity.DbSet<City> Cities { get; set; } // City
-        public System.Data.Entity.DbSet<Country> Countries { get; set; } // Country
-        public System.Data.Entity.DbSet<EfMigrationsHistory> EfMigrationsHistories { get; set; } // __EFMigrationsHistory
-        public System.Data.Entity.DbSet<Language> Languages { get; set; } // Language
-        public System.Data.Entity.DbSet<ParticipantStatus> ParticipantStatus { get; set; } // ParticipantStatus
-        public System.Data.Entity.DbSet<Requirement> Requirements { get; set; } // Requirement
-        public System.Data.Entity.DbSet<RequirementStatus> RequirementStatus { get; set; } // RequirementStatus
-        public System.Data.Entity.DbSet<ResourceType> ResourceTypes { get; set; } // ResourceType
-        public System.Data.Entity.DbSet<Skill> Skills { get; set; } // Skill
-        public System.Data.Entity.DbSet<User> Users { get; set; } // User
+        /// <summary>
+        /// Gets or sets the AccountStatus
+        /// </summary>
+        public System.Data.Entity.DbSet<AccountStatus> AccountStatus { get; set; }
 
+        /// <summary>
+        /// Gets or sets the Activities
+        /// </summary>
+        public System.Data.Entity.DbSet<Activity> Activities { get; set; }
+
+        /// <summary>
+        /// Gets or sets the ActivityLanguages
+        /// </summary>
+        public System.Data.Entity.DbSet<ActivityLanguage> ActivityLanguages { get; set; }
+
+        /// <summary>
+        /// Gets or sets the ActivityParticipants
+        /// </summary>
+        public System.Data.Entity.DbSet<ActivityParticipant> ActivityParticipants { get; set; }
+
+        /// <summary>
+        /// Gets or sets the ActivityTypes
+        /// </summary>
+        public System.Data.Entity.DbSet<ActivityType> ActivityTypes { get; set; }
+
+        /// <summary>
+        /// Gets or sets the Addresses
+        /// </summary>
+        public System.Data.Entity.DbSet<Address> Addresses { get; set; }
+
+        /// <summary>
+        /// Gets or sets the Categories
+        /// </summary>
+        public System.Data.Entity.DbSet<Category> Categories { get; set; }
+
+        /// <summary>
+        /// Gets or sets the Charities
+        /// </summary>
+        public System.Data.Entity.DbSet<Charity> Charities { get; set; }
+
+        /// <summary>
+        /// Gets or sets the Cities
+        /// </summary>
+        public System.Data.Entity.DbSet<City> Cities { get; set; }
+
+        /// <summary>
+        /// Gets or sets the Countries
+        /// </summary>
+        public System.Data.Entity.DbSet<Country> Countries { get; set; }
+
+        /// <summary>
+        /// Gets or sets the EfMigrationsHistories
+        /// </summary>
+        public System.Data.Entity.DbSet<EfMigrationsHistory> EfMigrationsHistories { get; set; }
+
+        /// <summary>
+        /// Gets or sets the Languages
+        /// </summary>
+        public System.Data.Entity.DbSet<Language> Languages { get; set; }
+
+        /// <summary>
+        /// Gets or sets the ParticipantStatus
+        /// </summary>
+        public System.Data.Entity.DbSet<ParticipantStatus> ParticipantStatus { get; set; }
+
+        /// <summary>
+        /// Gets or sets the Requirements
+        /// </summary>
+        public System.Data.Entity.DbSet<Requirement> Requirements { get; set; }
+
+        /// <summary>
+        /// Gets or sets the RequirementStatus
+        /// </summary>
+        public System.Data.Entity.DbSet<RequirementStatus> RequirementStatus { get; set; }
+
+        /// <summary>
+        /// Gets or sets the ResourceTypes
+        /// </summary>
+        public System.Data.Entity.DbSet<ResourceType> ResourceTypes { get; set; }
+
+        /// <summary>
+        /// Gets or sets the Skills
+        /// </summary>
+        public System.Data.Entity.DbSet<Skill> Skills { get; set; }
+
+        /// <summary>
+        /// Gets or sets the Users
+        /// </summary>
+        public System.Data.Entity.DbSet<User> Users { get; set; }
+
+        /// <summary>
+        /// Initializes static members of the <see cref="CrowdActDbContext"/> class.
+        /// </summary>
         static CrowdActDbContext()
         {
             System.Data.Entity.Database.SetInitializer<CrowdActDbContext>(null);
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CrowdActDbContext"/> class.
+        /// </summary>
         public CrowdActDbContext()
             : base("Name=CrowdActConnectionString")
         {
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CrowdActDbContext"/> class.
+        /// </summary>
+        /// <param name="connectionString">The connectionString<see cref="string"/></param>
         public CrowdActDbContext(string connectionString)
             : base(connectionString)
         {
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CrowdActDbContext"/> class.
+        /// </summary>
+        /// <param name="connectionString">The connectionString<see cref="string"/></param>
+        /// <param name="model">The model<see cref="System.Data.Entity.Infrastructure.DbCompiledModel"/></param>
         public CrowdActDbContext(string connectionString, System.Data.Entity.Infrastructure.DbCompiledModel model)
             : base(connectionString, model)
         {
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CrowdActDbContext"/> class.
+        /// </summary>
+        /// <param name="existingConnection">The existingConnection<see cref="System.Data.Common.DbConnection"/></param>
+        /// <param name="contextOwnsConnection">The contextOwnsConnection<see cref="bool"/></param>
         public CrowdActDbContext(System.Data.Common.DbConnection existingConnection, bool contextOwnsConnection)
             : base(existingConnection, contextOwnsConnection)
         {
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CrowdActDbContext"/> class.
+        /// </summary>
+        /// <param name="existingConnection">The existingConnection<see cref="System.Data.Common.DbConnection"/></param>
+        /// <param name="model">The model<see cref="System.Data.Entity.Infrastructure.DbCompiledModel"/></param>
+        /// <param name="contextOwnsConnection">The contextOwnsConnection<see cref="bool"/></param>
         public CrowdActDbContext(System.Data.Common.DbConnection existingConnection, System.Data.Entity.Infrastructure.DbCompiledModel model, bool contextOwnsConnection)
             : base(existingConnection, model, contextOwnsConnection)
         {
         }
 
+        /// <summary>
+        /// The Dispose
+        /// </summary>
+        /// <param name="disposing">The disposing<see cref="bool"/></param>
         protected override void Dispose(bool disposing)
         {
             base.Dispose(disposing);
         }
 
+        /// <summary>
+        /// The IsSqlParameterNull
+        /// </summary>
+        /// <param name="param">The param<see cref="System.Data.SqlClient.SqlParameter"/></param>
+        /// <returns>The <see cref="bool"/></returns>
         public bool IsSqlParameterNull(System.Data.SqlClient.SqlParameter param)
         {
             var sqlValue = param.SqlValue;
@@ -89,6 +192,10 @@ namespace AmaFon.CrowdAct.Net.DataLayer.Contexts
             return (sqlValue == null || sqlValue == System.DBNull.Value);
         }
 
+        /// <summary>
+        /// The OnModelCreating
+        /// </summary>
+        /// <param name="modelBuilder">The modelBuilder<see cref="System.Data.Entity.DbModelBuilder"/></param>
         protected override void OnModelCreating(System.Data.Entity.DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -113,6 +220,12 @@ namespace AmaFon.CrowdAct.Net.DataLayer.Contexts
             modelBuilder.Configurations.Add(new UserConfiguration());
         }
 
+        /// <summary>
+        /// The CreateModel
+        /// </summary>
+        /// <param name="modelBuilder">The modelBuilder<see cref="System.Data.Entity.DbModelBuilder"/></param>
+        /// <param name="schema">The schema<see cref="string"/></param>
+        /// <returns>The <see cref="System.Data.Entity.DbModelBuilder"/></returns>
         public static System.Data.Entity.DbModelBuilder CreateModel(System.Data.Entity.DbModelBuilder modelBuilder, string schema)
         {
             modelBuilder.Configurations.Add(new AccountStatusConfiguration(schema));

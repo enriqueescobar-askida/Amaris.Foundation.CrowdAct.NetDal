@@ -11,16 +11,8 @@
 // TargetFrameworkVersion = 4.7
 #pragma warning disable 1591    //  Ignore "Missing XML Comment" warning
 
-
 namespace AmaFon.CrowdAct.Net.DataLayer.Contexts
 {
-    using Configurations;
-    using Entities;
-    using Interfaces;
-    using System;
-    using System.CodeDom.Compiler;
-    using System.Collections.Generic;
-
     using System.Linq;
 
     // ************************************************************************
@@ -40,19 +32,41 @@ namespace AmaFon.CrowdAct.Net.DataLayer.Contexts
     //          }
     //      }
     //      Read more about it here: https://msdn.microsoft.com/en-us/data/dn314431.aspx
+    /// <summary>
+    /// Defines the <see cref="FakeDbSet{TEntity}" />
+    /// </summary>
+    /// <typeparam name="TEntity"></typeparam>
     [System.CodeDom.Compiler.GeneratedCode("EF.Reverse.POCO.Generator", "2.37.2.0")]
     public class FakeDbSet<TEntity> : System.Data.Entity.DbSet<TEntity>, IQueryable, System.Collections.Generic.IEnumerable<TEntity>, System.Data.Entity.Infrastructure.IDbAsyncEnumerable<TEntity> where TEntity : class
     {
+        /// <summary>
+        /// Defines the _primaryKeys
+        /// </summary>
         private readonly System.Reflection.PropertyInfo[] _primaryKeys;
+
+        /// <summary>
+        /// Defines the _data
+        /// </summary>
         private readonly System.Collections.ObjectModel.ObservableCollection<TEntity> _data;
+
+        /// <summary>
+        /// Defines the _query
+        /// </summary>
         private readonly IQueryable _query;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="FakeDbSet{TEntity}"/> class.
+        /// </summary>
         public FakeDbSet()
         {
             _data = new System.Collections.ObjectModel.ObservableCollection<TEntity>();
             _query = _data.AsQueryable();
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="FakeDbSet{TEntity}"/> class.
+        /// </summary>
+        /// <param name="primaryKeys">The primaryKeys<see cref="string[]"/></param>
         public FakeDbSet(params string[] primaryKeys)
         {
             _primaryKeys = typeof(TEntity).GetProperties().Where(x => primaryKeys.Contains(x.Name)).ToArray();
@@ -60,6 +74,11 @@ namespace AmaFon.CrowdAct.Net.DataLayer.Contexts
             _query = _data.AsQueryable();
         }
 
+        /// <summary>
+        /// The Find
+        /// </summary>
+        /// <param name="keyValues">The keyValues<see cref="object[]"/></param>
+        /// <returns>The <see cref="TEntity"/></returns>
         public override TEntity Find(params object[] keyValues)
         {
             if (_primaryKeys == null)
@@ -77,16 +96,32 @@ namespace AmaFon.CrowdAct.Net.DataLayer.Contexts
             return keyQuery.SingleOrDefault();
         }
 
+        /// <summary>
+        /// The FindAsync
+        /// </summary>
+        /// <param name="cancellationToken">The cancellationToken<see cref="System.Threading.CancellationToken"/></param>
+        /// <param name="keyValues">The keyValues<see cref="object[]"/></param>
+        /// <returns>The <see cref="System.Threading.Tasks.Task{TEntity}"/></returns>
         public override System.Threading.Tasks.Task<TEntity> FindAsync(System.Threading.CancellationToken cancellationToken, params object[] keyValues)
         {
             return System.Threading.Tasks.Task<TEntity>.Factory.StartNew(() => Find(keyValues), cancellationToken);
         }
 
+        /// <summary>
+        /// The FindAsync
+        /// </summary>
+        /// <param name="keyValues">The keyValues<see cref="object[]"/></param>
+        /// <returns>The <see cref="System.Threading.Tasks.Task{TEntity}"/></returns>
         public override System.Threading.Tasks.Task<TEntity> FindAsync(params object[] keyValues)
         {
             return System.Threading.Tasks.Task<TEntity>.Factory.StartNew(() => Find(keyValues));
         }
 
+        /// <summary>
+        /// The AddRange
+        /// </summary>
+        /// <param name="entities">The entities<see cref="System.Collections.Generic.IEnumerable{TEntity}"/></param>
+        /// <returns>The <see cref="System.Collections.Generic.IEnumerable{TEntity}"/></returns>
         public override System.Collections.Generic.IEnumerable<TEntity> AddRange(System.Collections.Generic.IEnumerable<TEntity> entities)
         {
             if (entities == null) throw new System.ArgumentNullException("entities");
@@ -98,6 +133,11 @@ namespace AmaFon.CrowdAct.Net.DataLayer.Contexts
             return items;
         }
 
+        /// <summary>
+        /// The Add
+        /// </summary>
+        /// <param name="item">The item<see cref="TEntity"/></param>
+        /// <returns>The <see cref="TEntity"/></returns>
         public override TEntity Add(TEntity item)
         {
             if (item == null) throw new System.ArgumentNullException("item");
@@ -105,6 +145,11 @@ namespace AmaFon.CrowdAct.Net.DataLayer.Contexts
             return item;
         }
 
+        /// <summary>
+        /// The RemoveRange
+        /// </summary>
+        /// <param name="entities">The entities<see cref="System.Collections.Generic.IEnumerable{TEntity}"/></param>
+        /// <returns>The <see cref="System.Collections.Generic.IEnumerable{TEntity}"/></returns>
         public override System.Collections.Generic.IEnumerable<TEntity> RemoveRange(System.Collections.Generic.IEnumerable<TEntity> entities)
         {
             if (entities == null) throw new System.ArgumentNullException("entities");
@@ -116,6 +161,11 @@ namespace AmaFon.CrowdAct.Net.DataLayer.Contexts
             return items;
         }
 
+        /// <summary>
+        /// The Remove
+        /// </summary>
+        /// <param name="item">The item<see cref="TEntity"/></param>
+        /// <returns>The <see cref="TEntity"/></returns>
         public override TEntity Remove(TEntity item)
         {
             if (item == null) throw new System.ArgumentNullException("item");
@@ -123,6 +173,11 @@ namespace AmaFon.CrowdAct.Net.DataLayer.Contexts
             return item;
         }
 
+        /// <summary>
+        /// The Attach
+        /// </summary>
+        /// <param name="item">The item<see cref="TEntity"/></param>
+        /// <returns>The <see cref="TEntity"/></returns>
         public override TEntity Attach(TEntity item)
         {
             if (item == null) throw new System.ArgumentNullException("item");
@@ -130,62 +185,111 @@ namespace AmaFon.CrowdAct.Net.DataLayer.Contexts
             return item;
         }
 
+        /// <summary>
+        /// The Create
+        /// </summary>
+        /// <returns>The <see cref="TEntity"/></returns>
         public override TEntity Create()
         {
             return System.Activator.CreateInstance<TEntity>();
         }
 
+        /// <summary>
+        /// The Create
+        /// </summary>
+        /// <typeparam name="TDerivedEntity"></typeparam>
+        /// <returns>The <see cref="TDerivedEntity"/></returns>
         public override TDerivedEntity Create<TDerivedEntity>()
         {
             return System.Activator.CreateInstance<TDerivedEntity>();
         }
 
+        /// <summary>
+        /// Gets the Local
+        /// </summary>
         public override System.Collections.ObjectModel.ObservableCollection<TEntity> Local
         {
             get { return _data; }
         }
 
+        /// <summary>
+        /// Gets the ElementType
+        /// </summary>
         System.Type IQueryable.ElementType
         {
             get { return _query.ElementType; }
         }
 
+        /// <summary>
+        /// Gets the Expression
+        /// </summary>
         System.Linq.Expressions.Expression IQueryable.Expression
         {
             get { return _query.Expression; }
         }
 
+        /// <summary>
+        /// Gets the Provider
+        /// </summary>
         IQueryProvider IQueryable.Provider
         {
             get { return new FakeDbAsyncQueryProvider<TEntity>(_query.Provider); }
         }
 
+        /// <summary>
+        /// The GetEnumerator
+        /// </summary>
+        /// <returns>The <see cref="System.Collections.IEnumerator"/></returns>
         System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
         {
             return _data.GetEnumerator();
         }
 
+        /// <summary>
+        /// The GetEnumerator
+        /// </summary>
+        /// <returns>The <see cref="System.Collections.Generic.IEnumerator{TEntity}"/></returns>
         System.Collections.Generic.IEnumerator<TEntity> System.Collections.Generic.IEnumerable<TEntity>.GetEnumerator()
         {
             return _data.GetEnumerator();
         }
 
+        /// <summary>
+        /// The GetAsyncEnumerator
+        /// </summary>
+        /// <returns>The <see cref="System.Data.Entity.Infrastructure.IDbAsyncEnumerator{TEntity}"/></returns>
         System.Data.Entity.Infrastructure.IDbAsyncEnumerator<TEntity> System.Data.Entity.Infrastructure.IDbAsyncEnumerable<TEntity>.GetAsyncEnumerator()
         {
             return new FakeDbAsyncEnumerator<TEntity>(_data.GetEnumerator());
         }
     }
 
+    /// <summary>
+    /// Defines the <see cref="FakeDbAsyncQueryProvider{TEntity}" />
+    /// </summary>
+    /// <typeparam name="TEntity"></typeparam>
     [System.CodeDom.Compiler.GeneratedCode("EF.Reverse.POCO.Generator", "2.37.2.0")]
     public class FakeDbAsyncQueryProvider<TEntity> : System.Data.Entity.Infrastructure.IDbAsyncQueryProvider
     {
+        /// <summary>
+        /// Defines the _inner
+        /// </summary>
         private readonly IQueryProvider _inner;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="FakeDbAsyncQueryProvider{TEntity}"/> class.
+        /// </summary>
+        /// <param name="inner">The inner<see cref="IQueryProvider"/></param>
         public FakeDbAsyncQueryProvider(IQueryProvider inner)
         {
             _inner = inner;
         }
 
+        /// <summary>
+        /// The CreateQuery
+        /// </summary>
+        /// <param name="expression">The expression<see cref="System.Linq.Expressions.Expression"/></param>
+        /// <returns>The <see cref="IQueryable"/></returns>
         public IQueryable CreateQuery(System.Linq.Expressions.Expression expression)
         {
             var m = expression as System.Linq.Expressions.MethodCallExpression;
@@ -194,90 +298,170 @@ namespace AmaFon.CrowdAct.Net.DataLayer.Contexts
                 var resultType = m.Method.ReturnType; // it shoud be IQueryable<T>
                 var tElement = resultType.GetGenericArguments()[0];
                 var queryType = typeof(FakeDbAsyncEnumerable<>).MakeGenericType(tElement);
-                return (IQueryable) System.Activator.CreateInstance(queryType, expression);
+                return (IQueryable)System.Activator.CreateInstance(queryType, expression);
             }
             return new FakeDbAsyncEnumerable<TEntity>(expression);
         }
 
+        /// <summary>
+        /// The CreateQuery
+        /// </summary>
+        /// <typeparam name="TElement"></typeparam>
+        /// <param name="expression">The expression<see cref="System.Linq.Expressions.Expression"/></param>
+        /// <returns>The <see cref="IQueryable{TElement}"/></returns>
         public IQueryable<TElement> CreateQuery<TElement>(System.Linq.Expressions.Expression expression)
         {
             var queryType = typeof(FakeDbAsyncEnumerable<>).MakeGenericType(typeof(TElement));
             return (IQueryable<TElement>)System.Activator.CreateInstance(queryType, expression);
         }
 
+        /// <summary>
+        /// The Execute
+        /// </summary>
+        /// <param name="expression">The expression<see cref="System.Linq.Expressions.Expression"/></param>
+        /// <returns>The <see cref="object"/></returns>
         public object Execute(System.Linq.Expressions.Expression expression)
         {
             return _inner.Execute(expression);
         }
 
+        /// <summary>
+        /// The Execute
+        /// </summary>
+        /// <typeparam name="TResult"></typeparam>
+        /// <param name="expression">The expression<see cref="System.Linq.Expressions.Expression"/></param>
+        /// <returns>The <see cref="TResult"/></returns>
         public TResult Execute<TResult>(System.Linq.Expressions.Expression expression)
         {
             return _inner.Execute<TResult>(expression);
         }
 
+        /// <summary>
+        /// The ExecuteAsync
+        /// </summary>
+        /// <param name="expression">The expression<see cref="System.Linq.Expressions.Expression"/></param>
+        /// <param name="cancellationToken">The cancellationToken<see cref="System.Threading.CancellationToken"/></param>
+        /// <returns>The <see cref="System.Threading.Tasks.Task{object}"/></returns>
         public System.Threading.Tasks.Task<object> ExecuteAsync(System.Linq.Expressions.Expression expression, System.Threading.CancellationToken cancellationToken)
         {
             return System.Threading.Tasks.Task.FromResult(Execute(expression));
         }
 
+        /// <summary>
+        /// The ExecuteAsync
+        /// </summary>
+        /// <typeparam name="TResult"></typeparam>
+        /// <param name="expression">The expression<see cref="System.Linq.Expressions.Expression"/></param>
+        /// <param name="cancellationToken">The cancellationToken<see cref="System.Threading.CancellationToken"/></param>
+        /// <returns>The <see cref="System.Threading.Tasks.Task{TResult}"/></returns>
         public System.Threading.Tasks.Task<TResult> ExecuteAsync<TResult>(System.Linq.Expressions.Expression expression, System.Threading.CancellationToken cancellationToken)
         {
             return System.Threading.Tasks.Task.FromResult(Execute<TResult>(expression));
         }
     }
 
+    /// <summary>
+    /// Defines the <see cref="FakeDbAsyncEnumerable{T}" />
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     [System.CodeDom.Compiler.GeneratedCode("EF.Reverse.POCO.Generator", "2.37.2.0")]
     public class FakeDbAsyncEnumerable<T> : EnumerableQuery<T>, System.Data.Entity.Infrastructure.IDbAsyncEnumerable<T>, IQueryable<T>
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="FakeDbAsyncEnumerable{T}"/> class.
+        /// </summary>
+        /// <param name="enumerable">The enumerable<see cref="System.Collections.Generic.IEnumerable{T}"/></param>
         public FakeDbAsyncEnumerable(System.Collections.Generic.IEnumerable<T> enumerable)
             : base(enumerable)
-        { }
+        {
+        }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="FakeDbAsyncEnumerable{T}"/> class.
+        /// </summary>
+        /// <param name="expression">The expression<see cref="System.Linq.Expressions.Expression"/></param>
         public FakeDbAsyncEnumerable(System.Linq.Expressions.Expression expression)
             : base(expression)
-        { }
+        {
+        }
 
+        /// <summary>
+        /// The GetAsyncEnumerator
+        /// </summary>
+        /// <returns>The <see cref="System.Data.Entity.Infrastructure.IDbAsyncEnumerator{T}"/></returns>
         public System.Data.Entity.Infrastructure.IDbAsyncEnumerator<T> GetAsyncEnumerator()
         {
             return new FakeDbAsyncEnumerator<T>(this.AsEnumerable().GetEnumerator());
         }
 
+        /// <summary>
+        /// The GetAsyncEnumerator
+        /// </summary>
+        /// <returns>The <see cref="System.Data.Entity.Infrastructure.IDbAsyncEnumerator"/></returns>
         System.Data.Entity.Infrastructure.IDbAsyncEnumerator System.Data.Entity.Infrastructure.IDbAsyncEnumerable.GetAsyncEnumerator()
         {
             return GetAsyncEnumerator();
         }
 
+        /// <summary>
+        /// Gets the Provider
+        /// </summary>
         IQueryProvider IQueryable.Provider
         {
             get { return new FakeDbAsyncQueryProvider<T>(this); }
         }
     }
 
+    /// <summary>
+    /// Defines the <see cref="FakeDbAsyncEnumerator{T}" />
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     [System.CodeDom.Compiler.GeneratedCode("EF.Reverse.POCO.Generator", "2.37.2.0")]
     public class FakeDbAsyncEnumerator<T> : System.Data.Entity.Infrastructure.IDbAsyncEnumerator<T>
     {
+        /// <summary>
+        /// Defines the _inner
+        /// </summary>
         private readonly System.Collections.Generic.IEnumerator<T> _inner;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="FakeDbAsyncEnumerator{T}"/> class.
+        /// </summary>
+        /// <param name="inner">The inner<see cref="System.Collections.Generic.IEnumerator{T}"/></param>
         public FakeDbAsyncEnumerator(System.Collections.Generic.IEnumerator<T> inner)
         {
             _inner = inner;
         }
 
+        /// <summary>
+        /// The Dispose
+        /// </summary>
         public void Dispose()
         {
             _inner.Dispose();
         }
 
+        /// <summary>
+        /// The MoveNextAsync
+        /// </summary>
+        /// <param name="cancellationToken">The cancellationToken<see cref="System.Threading.CancellationToken"/></param>
+        /// <returns>The <see cref="System.Threading.Tasks.Task{bool}"/></returns>
         public System.Threading.Tasks.Task<bool> MoveNextAsync(System.Threading.CancellationToken cancellationToken)
         {
             return System.Threading.Tasks.Task.FromResult(_inner.MoveNext());
         }
 
+        /// <summary>
+        /// Gets the Current
+        /// </summary>
         public T Current
         {
             get { return _inner.Current; }
         }
 
+        /// <summary>
+        /// Gets the Current
+        /// </summary>
         object System.Data.Entity.Infrastructure.IDbAsyncEnumerator.Current
         {
             get { return Current; }

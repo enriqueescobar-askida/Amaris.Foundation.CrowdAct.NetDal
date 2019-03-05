@@ -11,40 +11,110 @@
 // TargetFrameworkVersion = 4.7
 #pragma warning disable 1591    //  Ignore "Missing XML Comment" warning
 
-
 namespace AmaFon.CrowdAct.Net.DataLayer.Contexts
 {
-    using Configurations;
     using Entities;
     using Interfaces;
-    using System;
-    using System.CodeDom.Compiler;
-    using System.Collections.Generic;
 
-    using System.Linq;
-
+    /// <summary>
+    /// Defines the <see cref="FakeCrowdActDbContext" />
+    /// </summary>
     [System.CodeDom.Compiler.GeneratedCode("EF.Reverse.POCO.Generator", "2.37.2.0")]
     public class FakeCrowdActDbContext : ICrowdActDbContext
     {
+        /// <summary>
+        /// Gets or sets the AccountStatus
+        /// </summary>
         public System.Data.Entity.DbSet<AccountStatus> AccountStatus { get; set; }
+
+        /// <summary>
+        /// Gets or sets the Activities
+        /// </summary>
         public System.Data.Entity.DbSet<Activity> Activities { get; set; }
+
+        /// <summary>
+        /// Gets or sets the ActivityLanguages
+        /// </summary>
         public System.Data.Entity.DbSet<ActivityLanguage> ActivityLanguages { get; set; }
+
+        /// <summary>
+        /// Gets or sets the ActivityParticipants
+        /// </summary>
         public System.Data.Entity.DbSet<ActivityParticipant> ActivityParticipants { get; set; }
+
+        /// <summary>
+        /// Gets or sets the ActivityTypes
+        /// </summary>
         public System.Data.Entity.DbSet<ActivityType> ActivityTypes { get; set; }
+
+        /// <summary>
+        /// Gets or sets the Addresses
+        /// </summary>
         public System.Data.Entity.DbSet<Address> Addresses { get; set; }
+
+        /// <summary>
+        /// Gets or sets the Categories
+        /// </summary>
         public System.Data.Entity.DbSet<Category> Categories { get; set; }
+
+        /// <summary>
+        /// Gets or sets the Charities
+        /// </summary>
         public System.Data.Entity.DbSet<Charity> Charities { get; set; }
+
+        /// <summary>
+        /// Gets or sets the Cities
+        /// </summary>
         public System.Data.Entity.DbSet<City> Cities { get; set; }
+
+        /// <summary>
+        /// Gets or sets the Countries
+        /// </summary>
         public System.Data.Entity.DbSet<Country> Countries { get; set; }
+
+        /// <summary>
+        /// Gets or sets the EfMigrationsHistories
+        /// </summary>
         public System.Data.Entity.DbSet<EfMigrationsHistory> EfMigrationsHistories { get; set; }
+
+        /// <summary>
+        /// Gets or sets the Languages
+        /// </summary>
         public System.Data.Entity.DbSet<Language> Languages { get; set; }
+
+        /// <summary>
+        /// Gets or sets the ParticipantStatus
+        /// </summary>
         public System.Data.Entity.DbSet<ParticipantStatus> ParticipantStatus { get; set; }
+
+        /// <summary>
+        /// Gets or sets the Requirements
+        /// </summary>
         public System.Data.Entity.DbSet<Requirement> Requirements { get; set; }
+
+        /// <summary>
+        /// Gets or sets the RequirementStatus
+        /// </summary>
         public System.Data.Entity.DbSet<RequirementStatus> RequirementStatus { get; set; }
+
+        /// <summary>
+        /// Gets or sets the ResourceTypes
+        /// </summary>
         public System.Data.Entity.DbSet<ResourceType> ResourceTypes { get; set; }
+
+        /// <summary>
+        /// Gets or sets the Skills
+        /// </summary>
         public System.Data.Entity.DbSet<Skill> Skills { get; set; }
+
+        /// <summary>
+        /// Gets or sets the Users
+        /// </summary>
         public System.Data.Entity.DbSet<User> Users { get; set; }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="FakeCrowdActDbContext"/> class.
+        /// </summary>
         public FakeCrowdActDbContext()
         {
             _changeTracker = null;
@@ -71,65 +141,155 @@ namespace AmaFon.CrowdAct.Net.DataLayer.Contexts
             Users = new FakeDbSet<User>("Id");
         }
 
+        /// <summary>
+        /// Gets the SaveChangesCount
+        /// </summary>
         public int SaveChangesCount { get; private set; }
+
+        /// <summary>
+        /// The SaveChanges
+        /// </summary>
+        /// <returns>The <see cref="int"/></returns>
         public int SaveChanges()
         {
             ++SaveChangesCount;
             return 1;
         }
 
+        /// <summary>
+        /// The SaveChangesAsync
+        /// </summary>
+        /// <returns>The <see cref="System.Threading.Tasks.Task{int}"/></returns>
         public System.Threading.Tasks.Task<int> SaveChangesAsync()
         {
             ++SaveChangesCount;
             return System.Threading.Tasks.Task<int>.Factory.StartNew(() => 1);
         }
 
+        /// <summary>
+        /// The SaveChangesAsync
+        /// </summary>
+        /// <param name="cancellationToken">The cancellationToken<see cref="System.Threading.CancellationToken"/></param>
+        /// <returns>The <see cref="System.Threading.Tasks.Task{int}"/></returns>
         public System.Threading.Tasks.Task<int> SaveChangesAsync(System.Threading.CancellationToken cancellationToken)
         {
             ++SaveChangesCount;
             return System.Threading.Tasks.Task<int>.Factory.StartNew(() => 1, cancellationToken);
         }
 
+        /// <summary>
+        /// The Dispose
+        /// </summary>
+        /// <param name="disposing">The disposing<see cref="bool"/></param>
         protected virtual void Dispose(bool disposing)
         {
         }
 
+        /// <summary>
+        /// The Dispose
+        /// </summary>
         public void Dispose()
         {
             Dispose(true);
         }
 
+        /// <summary>
+        /// Defines the _changeTracker
+        /// </summary>
         private System.Data.Entity.Infrastructure.DbChangeTracker _changeTracker;
-        public System.Data.Entity.Infrastructure.DbChangeTracker ChangeTracker { get { return _changeTracker; } }
+
+        /// <summary>
+        /// Gets the ChangeTracker
+        /// </summary>
+        public System.Data.Entity.Infrastructure.DbChangeTracker ChangeTracker
+        {
+            get { return _changeTracker; }
+        }
+
+        /// <summary>
+        /// Defines the _configuration
+        /// </summary>
         private System.Data.Entity.Infrastructure.DbContextConfiguration _configuration;
-        public System.Data.Entity.Infrastructure.DbContextConfiguration Configuration { get { return _configuration; } }
+
+        /// <summary>
+        /// Gets the Configuration
+        /// </summary>
+        public System.Data.Entity.Infrastructure.DbContextConfiguration Configuration
+        {
+            get { return _configuration; }
+        }
+
+        /// <summary>
+        /// Defines the _database
+        /// </summary>
         private System.Data.Entity.Database _database;
-        public System.Data.Entity.Database Database { get { return _database; } }
+
+        /// <summary>
+        /// Gets the Database
+        /// </summary>
+        public System.Data.Entity.Database Database
+        {
+            get { return _database; }
+        }
+
+        /// <summary>
+        /// The Entry
+        /// </summary>
+        /// <typeparam name="TEntity"></typeparam>
+        /// <param name="entity">The entity<see cref="TEntity"/></param>
+        /// <returns>The <see cref="System.Data.Entity.Infrastructure.DbEntityEntry{TEntity}"/></returns>
         public System.Data.Entity.Infrastructure.DbEntityEntry<TEntity> Entry<TEntity>(TEntity entity) where TEntity : class
         {
             throw new System.NotImplementedException();
         }
+
+        /// <summary>
+        /// The Entry
+        /// </summary>
+        /// <param name="entity">The entity<see cref="object"/></param>
+        /// <returns>The <see cref="System.Data.Entity.Infrastructure.DbEntityEntry"/></returns>
         public System.Data.Entity.Infrastructure.DbEntityEntry Entry(object entity)
         {
             throw new System.NotImplementedException();
         }
+
+        /// <summary>
+        /// The GetValidationErrors
+        /// </summary>
+        /// <returns>The <see cref="System.Collections.Generic.IEnumerable{System.Data.Entity.Validation.DbEntityValidationResult}"/></returns>
         public System.Collections.Generic.IEnumerable<System.Data.Entity.Validation.DbEntityValidationResult> GetValidationErrors()
         {
             throw new System.NotImplementedException();
         }
+
+        /// <summary>
+        /// The Set
+        /// </summary>
+        /// <param name="entityType">The entityType<see cref="System.Type"/></param>
+        /// <returns>The <see cref="System.Data.Entity.DbSet"/></returns>
         public System.Data.Entity.DbSet Set(System.Type entityType)
         {
             throw new System.NotImplementedException();
         }
+
+        /// <summary>
+        /// The Set
+        /// </summary>
+        /// <typeparam name="TEntity"></typeparam>
+        /// <returns>The <see cref="System.Data.Entity.DbSet{TEntity}"/></returns>
         public System.Data.Entity.DbSet<TEntity> Set<TEntity>() where TEntity : class
         {
             throw new System.NotImplementedException();
         }
+
+        /// <summary>
+        /// The ToString
+        /// </summary>
+        /// <returns>The <see cref="string"/></returns>
         public override string ToString()
         {
             throw new System.NotImplementedException();
         }
-
     }
 }
 // </auto-generated>

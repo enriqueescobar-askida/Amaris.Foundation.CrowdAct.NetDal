@@ -11,18 +11,17 @@
 // TargetFrameworkVersion = 4.7
 #pragma warning disable 1591    //  Ignore "Missing XML Comment" warning
 
-
 namespace AmaFon.CrowdAct.Net.DataLayer.Contexts
 {
-    using Configurations;
-    using Entities;
-    using Interfaces;
-    using System;
-    using System.CodeDom.Compiler;
-    using System.Collections.Generic;
-
+    /// <summary>
+    /// Defines the <see cref="CrowdActDbContextFactory" />
+    /// </summary>
     public class CrowdActDbContextFactory : System.Data.Entity.Infrastructure.IDbContextFactory<CrowdActDbContext>
     {
+        /// <summary>
+        /// The Create
+        /// </summary>
+        /// <returns>The <see cref="CrowdActDbContext"/></returns>
         public CrowdActDbContext Create()
         {
             return new CrowdActDbContext();
