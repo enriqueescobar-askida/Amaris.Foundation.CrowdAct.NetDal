@@ -11,26 +11,29 @@
 // TargetFrameworkVersion = 4.7
 #pragma warning disable 1591    //  Ignore "Missing XML Comment" warning
 
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-
 namespace AmaFon.CrowdAct.Net.DataLayer.Configurations
 {
     using Entities;
-    using Interfaces;
-    using System;
-    using System.CodeDom.Compiler;
-    using System.Collections.Generic;
 
     // Activity
+    /// <summary>
+    /// Defines the <see cref="ActivityConfiguration" />
+    /// </summary>
     [System.CodeDom.Compiler.GeneratedCode("EF.Reverse.POCO.Generator", "2.37.2.0")]
     public class ActivityConfiguration : System.Data.Entity.ModelConfiguration.EntityTypeConfiguration<Activity>
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ActivityConfiguration"/> class.
+        /// </summary>
         public ActivityConfiguration()
             : this("dbo")
         {
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ActivityConfiguration"/> class.
+        /// </summary>
+        /// <param name="schema">The schema<see cref="string"/></param>
         public ActivityConfiguration(string schema)
         {
             Property(x => x.Name).IsOptional();
@@ -39,6 +42,7 @@ namespace AmaFon.CrowdAct.Net.DataLayer.Configurations
             Property(x => x.AddressId).IsOptional();
             Property(x => x.FieldId).IsOptional();
             Property(x => x.TypeId).IsOptional();
+            Property(x => x.ActivityTypeId).IsOptional();
 
             HasMany(t => t.Skills).WithMany(t => t.Activities).Map(m =>
             {
@@ -48,6 +52,5 @@ namespace AmaFon.CrowdAct.Net.DataLayer.Configurations
             });
         }
     }
-
 }
 // </auto-generated>

@@ -11,30 +11,32 @@
 // TargetFrameworkVersion = 4.7
 #pragma warning disable 1591    //  Ignore "Missing XML Comment" warning
 
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-
 namespace AmaFon.CrowdAct.Net.DataLayer.Configurations
 {
     using Entities;
-    using Interfaces;
-    using System;
-    using System.CodeDom.Compiler;
-    using System.Collections.Generic;
 
     // Language
+    /// <summary>
+    /// Defines the <see cref="LanguageConfiguration" />
+    /// </summary>
     [System.CodeDom.Compiler.GeneratedCode("EF.Reverse.POCO.Generator", "2.37.2.0")]
     public class LanguageConfiguration : System.Data.Entity.ModelConfiguration.EntityTypeConfiguration<Language>
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="LanguageConfiguration"/> class.
+        /// </summary>
         public LanguageConfiguration()
             : this("dbo")
         {
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="LanguageConfiguration"/> class.
+        /// </summary>
+        /// <param name="schema">The schema<see cref="string"/></param>
         public LanguageConfiguration(string schema)
         {
         }
     }
-
 }
 // </auto-generated>

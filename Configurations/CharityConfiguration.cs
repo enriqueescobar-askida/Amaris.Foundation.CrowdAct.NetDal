@@ -11,26 +11,29 @@
 // TargetFrameworkVersion = 4.7
 #pragma warning disable 1591    //  Ignore "Missing XML Comment" warning
 
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-
 namespace AmaFon.CrowdAct.Net.DataLayer.Configurations
 {
     using Entities;
-    using Interfaces;
-    using System;
-    using System.CodeDom.Compiler;
-    using System.Collections.Generic;
 
     // Charity
+    /// <summary>
+    /// Defines the <see cref="CharityConfiguration" />
+    /// </summary>
     [System.CodeDom.Compiler.GeneratedCode("EF.Reverse.POCO.Generator", "2.37.2.0")]
     public class CharityConfiguration : System.Data.Entity.ModelConfiguration.EntityTypeConfiguration<Charity>
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CharityConfiguration"/> class.
+        /// </summary>
         public CharityConfiguration()
             : this("dbo")
         {
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CharityConfiguration"/> class.
+        /// </summary>
+        /// <param name="schema">The schema<see cref="string"/></param>
         public CharityConfiguration(string schema)
         {
             Property(x => x.OrgName).IsOptional();
@@ -43,9 +46,7 @@ namespace AmaFon.CrowdAct.Net.DataLayer.Configurations
             Property(x => x.Logo).IsOptional();
             Property(x => x.AddressId).IsOptional();
             Property(x => x.FieldId).IsOptional();
-
         }
     }
-
 }
 // </auto-generated>

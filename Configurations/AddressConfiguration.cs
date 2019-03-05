@@ -11,35 +11,36 @@
 // TargetFrameworkVersion = 4.7
 #pragma warning disable 1591    //  Ignore "Missing XML Comment" warning
 
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-
 namespace AmaFon.CrowdAct.Net.DataLayer.Configurations
 {
     using Entities;
-    using Interfaces;
-    using System;
-    using System.CodeDom.Compiler;
-    using System.Collections.Generic;
 
     // Address
+    /// <summary>
+    /// Defines the <see cref="AddressConfiguration" />
+    /// </summary>
     [System.CodeDom.Compiler.GeneratedCode("EF.Reverse.POCO.Generator", "2.37.2.0")]
     public class AddressConfiguration : System.Data.Entity.ModelConfiguration.EntityTypeConfiguration<Address>
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AddressConfiguration"/> class.
+        /// </summary>
         public AddressConfiguration()
             : this("dbo")
         {
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AddressConfiguration"/> class.
+        /// </summary>
+        /// <param name="schema">The schema<see cref="string"/></param>
         public AddressConfiguration(string schema)
         {
             Property(x => x.Name).IsOptional();
             Property(x => x.Complement).IsOptional();
             Property(x => x.ZipCode).IsOptional();
             Property(x => x.CityId).IsOptional();
-
         }
     }
-
 }
 // </auto-generated>

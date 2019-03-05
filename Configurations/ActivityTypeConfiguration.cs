@@ -11,30 +11,32 @@
 // TargetFrameworkVersion = 4.7
 #pragma warning disable 1591    //  Ignore "Missing XML Comment" warning
 
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-
 namespace AmaFon.CrowdAct.Net.DataLayer.Configurations
 {
     using Entities;
-    using Interfaces;
-    using System;
-    using System.CodeDom.Compiler;
-    using System.Collections.Generic;
 
     // ActivityType
+    /// <summary>
+    /// Defines the <see cref="ActivityTypeConfiguration" />
+    /// </summary>
     [System.CodeDom.Compiler.GeneratedCode("EF.Reverse.POCO.Generator", "2.37.2.0")]
     public class ActivityTypeConfiguration : System.Data.Entity.ModelConfiguration.EntityTypeConfiguration<ActivityType>
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ActivityTypeConfiguration"/> class.
+        /// </summary>
         public ActivityTypeConfiguration()
             : this("dbo")
         {
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ActivityTypeConfiguration"/> class.
+        /// </summary>
+        /// <param name="schema">The schema<see cref="string"/></param>
         public ActivityTypeConfiguration(string schema)
         {
         }
     }
-
 }
 // </auto-generated>

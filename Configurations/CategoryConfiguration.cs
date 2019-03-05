@@ -11,26 +11,29 @@
 // TargetFrameworkVersion = 4.7
 #pragma warning disable 1591    //  Ignore "Missing XML Comment" warning
 
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-
 namespace AmaFon.CrowdAct.Net.DataLayer.Configurations
 {
     using Entities;
-    using Interfaces;
-    using System;
-    using System.CodeDom.Compiler;
-    using System.Collections.Generic;
 
     // Category
+    /// <summary>
+    /// Defines the <see cref="CategoryConfiguration" />
+    /// </summary>
     [System.CodeDom.Compiler.GeneratedCode("EF.Reverse.POCO.Generator", "2.37.2.0")]
     public class CategoryConfiguration : System.Data.Entity.ModelConfiguration.EntityTypeConfiguration<Category>
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CategoryConfiguration"/> class.
+        /// </summary>
         public CategoryConfiguration()
             : this("dbo")
         {
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CategoryConfiguration"/> class.
+        /// </summary>
+        /// <param name="schema">The schema<see cref="string"/></param>
         public CategoryConfiguration(string schema)
         {
             HasMany(t => t.Users).WithMany(t => t.Categories).Map(m =>
@@ -41,6 +44,5 @@ namespace AmaFon.CrowdAct.Net.DataLayer.Configurations
             });
         }
     }
-
 }
 // </auto-generated>

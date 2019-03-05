@@ -11,30 +11,32 @@
 // TargetFrameworkVersion = 4.7
 #pragma warning disable 1591    //  Ignore "Missing XML Comment" warning
 
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-
 namespace AmaFon.CrowdAct.Net.DataLayer.Configurations
 {
     using Entities;
-    using Interfaces;
-    using System;
-    using System.CodeDom.Compiler;
-    using System.Collections.Generic;
 
     // ResourceType
+    /// <summary>
+    /// Defines the <see cref="ResourceTypeConfiguration" />
+    /// </summary>
     [System.CodeDom.Compiler.GeneratedCode("EF.Reverse.POCO.Generator", "2.37.2.0")]
     public class ResourceTypeConfiguration : System.Data.Entity.ModelConfiguration.EntityTypeConfiguration<ResourceType>
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ResourceTypeConfiguration"/> class.
+        /// </summary>
         public ResourceTypeConfiguration()
             : this("dbo")
         {
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ResourceTypeConfiguration"/> class.
+        /// </summary>
+        /// <param name="schema">The schema<see cref="string"/></param>
         public ResourceTypeConfiguration(string schema)
         {
         }
     }
-
 }
 // </auto-generated>
