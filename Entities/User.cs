@@ -11,33 +11,48 @@
 // TargetFrameworkVersion = 4.7
 #pragma warning disable 1591    //  Ignore "Missing XML Comment" warning
 
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-
 namespace AmaFon.CrowdAct.Net.DataLayer.Entities
 {
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
 
     // User
+    /// <summary>
+    /// Defines the <see cref="User" />
+    /// </summary>
     [Table("User", Schema = "dbo")]
     [System.CodeDom.Compiler.GeneratedCode("EF.Reverse.POCO.Generator", "2.37.2.0")]
     public class User
     {
+        /// <summary>
+        /// Gets or sets the Id
+        /// ID (Primary key)
+        /// </summary>
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column(@"ID", Order = 1, TypeName = "int")]
         [Index(@"PK_User", 1, IsUnique = true, IsClustered = true)]
         [Required]
         [Key]
         [Display(Name = "Id")]
-        public int Id { get; set; } // ID (Primary key)
+        public int Id { get; set; }
 
+        /// <summary>
+        /// Gets or sets the FirstName
+        /// </summary>
         [Column(@"FirstName", Order = 2, TypeName = "nvarchar(max)")]
         [Display(Name = "First name")]
-        public string FirstName { get; set; } // FirstName
+        public string FirstName { get; set; }
 
+        /// <summary>
+        /// Gets or sets the LastName
+        /// </summary>
         [Column(@"LastName", Order = 3, TypeName = "nvarchar(max)")]
         [Display(Name = "Last name")]
-        public string LastName { get; set; } // LastName
+        public string LastName { get; set; }
 
+        /// <summary>
+        /// Gets or sets the Email
+        /// </summary>
         [Column(@"Email", Order = 4, TypeName = "nvarchar")]
         [Index(@"AK_User_Email", 1, IsUnique = true, IsClustered = false)]
         [Required(AllowEmptyStrings = true)]
@@ -45,71 +60,100 @@ namespace AmaFon.CrowdAct.Net.DataLayer.Entities
         [StringLength(450)]
         [EmailAddress]
         [Display(Name = "Email")]
-        public string Email { get; set; } // Email (length: 450)
+        public string Email { get; set; }
 
+        /// <summary>
+        /// Gets or sets the Password
+        /// </summary>
         [Column(@"Password", Order = 5, TypeName = "nvarchar(max)")]
         [DataType(DataType.Password)]
         [Display(Name = "Password")]
-        public string Password { get; set; } // Password
+        public string Password { get; set; }
 
+        /// <summary>
+        /// Gets or sets the Phone
+        /// </summary>
         [Column(@"Phone", Order = 6, TypeName = "nvarchar(max)")]
         [Phone]
         [Display(Name = "Phone")]
-        public string Phone { get; set; } // Phone
+        public string Phone { get; set; }
 
+        /// <summary>
+        /// Gets or sets the BirthDate
+        /// </summary>
         [Column(@"BirthDate", Order = 7, TypeName = "datetime2")]
         [DataType(DataType.DateTime)]
         [Display(Name = "Birth date")]
-        public System.DateTime? BirthDate { get; set; } // BirthDate
+        public System.DateTime? BirthDate { get; set; }
 
+        /// <summary>
+        /// Gets or sets the Avatar
+        /// </summary>
         [Column(@"Avatar", Order = 8, TypeName = "nvarchar(max)")]
         [Display(Name = "Avatar")]
-        public string Avatar { get; set; } // Avatar
+        public string Avatar { get; set; }
 
+        /// <summary>
+        /// Gets or sets the AddressId
+        /// </summary>
         [Column(@"AddressID", Order = 9, TypeName = "int")]
         [Index(@"IX_User_AddressID", 1, IsUnique = true, IsClustered = false)]
         [Display(Name = "Address ID")]
-        public int? AddressId { get; set; } // AddressID
+        public int? AddressId { get; set; }
 
+        /// <summary>
+        /// Gets or sets the AccountStatusId
+        /// </summary>
         [Column(@"AccountStatusID", Order = 10, TypeName = "int")]
         [Index(@"IX_User_AccountStatusID", 1, IsUnique = false, IsClustered = false)]
         [Display(Name = "Account status ID")]
-        public int? AccountStatusId { get; set; } // AccountStatusID
+        public int? AccountStatusId { get; set; }
 
         // Reverse navigation
 
         /// <summary>
+        /// Gets or sets the ActivityParticipants
         /// Child ActivityParticipants where [ActivityParticipant].[ParticipantID] point to this entity (FK_ActivityParticipant_User_ParticipantID)
         /// </summary>
-        public virtual System.Collections.Generic.ICollection<ActivityParticipant> ActivityParticipants { get; set; } // ActivityParticipant.FK_ActivityParticipant_User_ParticipantID
+        public virtual System.Collections.Generic.ICollection<ActivityParticipant> ActivityParticipants { get; set; }
+
         /// <summary>
+        /// Gets or sets the Categories
         /// Child Categories (Many-to-Many) mapped by table [ParticipantCategory]
         /// </summary>
-        public virtual System.Collections.Generic.ICollection<Category> Categories { get; set; } // Many to many mapping
+        public virtual System.Collections.Generic.ICollection<Category> Categories { get; set; }
+
         /// <summary>
+        /// Gets or sets the Charities
         /// Child Charities where [Charity].[RepresentativeID] point to this entity (FK_Charity_User_RepresentativeID)
         /// </summary>
-        public virtual System.Collections.Generic.ICollection<Charity> Charities { get; set; } // Charity.FK_Charity_User_RepresentativeID
+        public virtual System.Collections.Generic.ICollection<Charity> Charities { get; set; }
 
         // Foreign keys
 
         /// <summary>
+        /// Gets or sets the AccountStatus
         /// Parent AccountStatus pointed by [User].([AccountStatusId]) (FK_User_AccountStatus_AccountStatusID)
         /// </summary>
-        [ForeignKey("AccountStatusId")] public virtual AccountStatus AccountStatus { get; set; } // FK_User_AccountStatus_AccountStatusID
+        [ForeignKey("AccountStatusId")]
+        public virtual AccountStatus AccountStatus { get; set; }
 
         /// <summary>
+        /// Gets or sets the Address
         /// Parent Address pointed by [User].([AddressId]) (FK_User_Address_AddressID)
         /// </summary>
-        [ForeignKey("AddressId")] public virtual Address Address { get; set; } // FK_User_Address_AddressID
+        [ForeignKey("AddressId")]
+        public virtual Address Address { get; set; }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="User"/> class.
+        /// </summary>
         public User()
         {
-            ActivityParticipants = new System.Collections.Generic.List<ActivityParticipant>();
-            Charities = new System.Collections.Generic.List<Charity>();
-            Categories = new System.Collections.Generic.List<Category>();
+            this.ActivityParticipants = new System.Collections.Generic.List<ActivityParticipant>();
+            this.Charities = new System.Collections.Generic.List<Charity>();
+            this.Categories = new System.Collections.Generic.List<Category>();
         }
     }
-
 }
 // </auto-generated>

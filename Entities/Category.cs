@@ -11,48 +11,66 @@
 // TargetFrameworkVersion = 4.7
 #pragma warning disable 1591    //  Ignore "Missing XML Comment" warning
 
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-
 namespace AmaFon.CrowdAct.Net.DataLayer.Entities
 {
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
 
     // Category
+    /// <summary>
+    /// Defines the <see cref="Category" />
+    /// </summary>
     [Table("Category", Schema = "dbo")]
     [System.CodeDom.Compiler.GeneratedCode("EF.Reverse.POCO.Generator", "2.37.2.0")]
     public class Category
     {
+        /// <summary>
+        /// Gets or sets the Id
+        /// ID (Primary key)
+        /// </summary>
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column(@"ID", Order = 1, TypeName = "int")]
         [Index(@"PK_Category", 1, IsUnique = true, IsClustered = true)]
         [Required]
         [Key]
         [Display(Name = "Id")]
-        public int Id { get; set; } // ID (Primary key)
+        public int Id { get; set; }
 
+        /// <summary>
+        /// Gets or sets the Label
+        /// Label (length: 450)
+        /// </summary>
         [Column(@"Label", Order = 2, TypeName = "nvarchar")]
         [Index(@"AK_Category_Label", 1, IsUnique = true, IsClustered = false)]
         [Required(AllowEmptyStrings = true)]
         [MaxLength(450)]
         [StringLength(450)]
         [Display(Name = "Label")]
-        public string Label { get; set; } // Label (length: 450)
+        public string Label { get; set; }
 
         // Reverse navigation
 
         /// <summary>
+        /// Gets or sets the Activities
         /// Child Activities where [Activity].[FieldID] point to this entity (FK_Activity_Category_FieldID)
         /// </summary>
-        public virtual System.Collections.Generic.ICollection<Activity> Activities { get; set; } // Activity.FK_Activity_Category_FieldID
+        public virtual System.Collections.Generic.ICollection<Activity> Activities { get; set; }
+
         /// <summary>
+        /// Gets or sets the Charities
         /// Child Charities where [Charity].[FieldID] point to this entity (FK_Charity_Category_FieldID)
         /// </summary>
-        public virtual System.Collections.Generic.ICollection<Charity> Charities { get; set; } // Charity.FK_Charity_Category_FieldID
+        public virtual System.Collections.Generic.ICollection<Charity> Charities { get; set; }
+
         /// <summary>
+        /// Gets or sets the Users
         /// Child Users (Many-to-Many) mapped by table [ParticipantCategory]
         /// </summary>
-        public virtual System.Collections.Generic.ICollection<User> Users { get; set; } // Many to many mapping
+        public virtual System.Collections.Generic.ICollection<User> Users { get; set; }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Category"/> class.
+        /// </summary>
         public Category()
         {
             Activities = new System.Collections.Generic.List<Activity>();
@@ -60,6 +78,5 @@ namespace AmaFon.CrowdAct.Net.DataLayer.Entities
             Users = new System.Collections.Generic.List<User>();
         }
     }
-
 }
 // </auto-generated>

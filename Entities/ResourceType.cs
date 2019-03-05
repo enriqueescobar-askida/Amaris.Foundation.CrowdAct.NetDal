@@ -11,45 +11,58 @@
 // TargetFrameworkVersion = 4.7
 #pragma warning disable 1591    //  Ignore "Missing XML Comment" warning
 
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-
 namespace AmaFon.CrowdAct.Net.DataLayer.Entities
 {
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
 
     // ResourceType
+    /// <summary>
+    /// Defines the <see cref="ResourceType" />
+    /// </summary>
     [Table("ResourceType", Schema = "dbo")]
     [System.CodeDom.Compiler.GeneratedCode("EF.Reverse.POCO.Generator", "2.37.2.0")]
     public class ResourceType
     {
+        /// <summary>
+        /// Gets or sets the Id
+        /// ID (Primary key)
+        /// </summary>
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column(@"ID", Order = 1, TypeName = "int")]
         [Index(@"PK_ResourceType", 1, IsUnique = true, IsClustered = true)]
         [Required]
         [Key]
         [Display(Name = "Id")]
-        public int Id { get; set; } // ID (Primary key)
+        public int Id { get; set; }
 
+        /// <summary>
+        /// Gets or sets the Label
+        /// Label (length: 450)
+        /// </summary>
         [Column(@"Label", Order = 2, TypeName = "nvarchar")]
         [Index(@"AK_ResourceType_Label", 1, IsUnique = true, IsClustered = false)]
         [Required(AllowEmptyStrings = true)]
         [MaxLength(450)]
         [StringLength(450)]
         [Display(Name = "Label")]
-        public string Label { get; set; } // Label (length: 450)
+        public string Label { get; set; }
 
         // Reverse navigation
 
         /// <summary>
+        /// Gets or sets the Requirements
         /// Child Requirements where [Requirement].[ResourceTypeID] point to this entity (FK_Requirement_ResourceType_ResourceTypeID)
         /// </summary>
-        public virtual System.Collections.Generic.ICollection<Requirement> Requirements { get; set; } // Requirement.FK_Requirement_ResourceType_ResourceTypeID
+        public virtual System.Collections.Generic.ICollection<Requirement> Requirements { get; set; }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ResourceType"/> class.
+        /// </summary>
         public ResourceType()
         {
-            Requirements = new System.Collections.Generic.List<Requirement>();
+            this.Requirements = new System.Collections.Generic.List<Requirement>();
         }
     }
-
 }
 // </auto-generated>

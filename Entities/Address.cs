@@ -11,65 +11,93 @@
 // TargetFrameworkVersion = 4.7
 #pragma warning disable 1591    //  Ignore "Missing XML Comment" warning
 
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-
 namespace AmaFon.CrowdAct.Net.DataLayer.Entities
 {
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
 
     // Address
+    /// <summary>
+    /// Defines the <see cref="Address" />
+    /// </summary>
     [Table("Address", Schema = "dbo")]
     [System.CodeDom.Compiler.GeneratedCode("EF.Reverse.POCO.Generator", "2.37.2.0")]
     public class Address
     {
+        /// <summary>
+        /// Gets or sets the Id
+        /// ID (Primary key)
+        /// </summary>
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column(@"ID", Order = 1, TypeName = "int")]
         [Index(@"PK_Address", 1, IsUnique = true, IsClustered = true)]
         [Required]
         [Key]
         [Display(Name = "Id")]
-        public int Id { get; set; } // ID (Primary key)
+        public int Id { get; set; }
 
+        /// <summary>
+        /// Gets or sets the Name
+        /// </summary>
         [Column(@"Name", Order = 2, TypeName = "nvarchar(max)")]
         [Display(Name = "Name")]
-        public string Name { get; set; } // Name
+        public string Name { get; set; }
 
+        /// <summary>
+        /// Gets or sets the Complement
+        /// </summary>
         [Column(@"Complement", Order = 3, TypeName = "nvarchar(max)")]
         [Display(Name = "Complement")]
-        public string Complement { get; set; } // Complement
+        public string Complement { get; set; }
 
+        /// <summary>
+        /// Gets or sets the ZipCode
+        /// </summary>
         [Column(@"ZipCode", Order = 4, TypeName = "nvarchar(max)")]
         [DataType(DataType.PostalCode)]
         [Display(Name = "Zip code")]
-        public string ZipCode { get; set; } // ZipCode
+        public string ZipCode { get; set; }
 
+        /// <summary>
+        /// Gets or sets the CityId
+        /// </summary>
         [Column(@"CityID", Order = 5, TypeName = "int")]
         [Index(@"IX_Address_CityID", 1, IsUnique = false, IsClustered = false)]
         [Display(Name = "City ID")]
-        public int? CityId { get; set; } // CityID
+        public int? CityId { get; set; }
 
         // Reverse navigation
 
         /// <summary>
+        /// Gets or sets the Activities
         /// Child Activities where [Activity].[AddressID] point to this entity (FK_Activity_Address_AddressID)
         /// </summary>
-        public virtual System.Collections.Generic.ICollection<Activity> Activities { get; set; } // Activity.FK_Activity_Address_AddressID
+        public virtual System.Collections.Generic.ICollection<Activity> Activities { get; set; }
+
         /// <summary>
+        /// Gets or sets the Charities
         /// Child Charities where [Charity].[AddressID] point to this entity (FK_Charity_Address_AddressID)
         /// </summary>
-        public virtual System.Collections.Generic.ICollection<Charity> Charities { get; set; } // Charity.FK_Charity_Address_AddressID
+        public virtual System.Collections.Generic.ICollection<Charity> Charities { get; set; }
+
         /// <summary>
+        /// Gets or sets the Users
         /// Child Users where [User].[AddressID] point to this entity (FK_User_Address_AddressID)
         /// </summary>
-        public virtual System.Collections.Generic.ICollection<User> Users { get; set; } // User.FK_User_Address_AddressID
+        public virtual System.Collections.Generic.ICollection<User> Users { get; set; }
 
         // Foreign keys
 
         /// <summary>
+        /// Gets or sets the City
         /// Parent City pointed by [Address].([CityId]) (FK_Address_City_CityID)
         /// </summary>
-        [ForeignKey("CityId")] public virtual City City { get; set; } // FK_Address_City_CityID
+        [ForeignKey("CityId")]
+        public virtual City City { get; set; }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Address"/> class.
+        /// </summary>
         public Address()
         {
             Activities = new System.Collections.Generic.List<Activity>();
@@ -77,6 +105,5 @@ namespace AmaFon.CrowdAct.Net.DataLayer.Entities
             Users = new System.Collections.Generic.List<User>();
         }
     }
-
 }
 // </auto-generated>

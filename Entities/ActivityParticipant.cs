@@ -11,25 +11,35 @@
 // TargetFrameworkVersion = 4.7
 #pragma warning disable 1591    //  Ignore "Missing XML Comment" warning
 
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-
 namespace AmaFon.CrowdAct.Net.DataLayer.Entities
 {
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
 
     // ActivityParticipant
+    /// <summary>
+    /// Defines the <see cref="ActivityParticipant" />
+    /// </summary>
     [Table("ActivityParticipant", Schema = "dbo")]
     [System.CodeDom.Compiler.GeneratedCode("EF.Reverse.POCO.Generator", "2.37.2.0")]
     public class ActivityParticipant
     {
+        /// <summary>
+        /// Gets or sets the ActivityId
+        /// ActivityID (Primary key)
+        /// </summary>
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         [Column(@"ActivityID", Order = 1, TypeName = "int")]
         [Index(@"PK_ActivityParticipant", 1, IsUnique = true, IsClustered = true)]
         [Required]
         [Key]
         [Display(Name = "Activity ID")]
-        public int ActivityId { get; set; } // ActivityID (Primary key)
+        public int ActivityId { get; set; }
 
+        /// <summary>
+        /// Gets or sets the ParticipantId
+        /// ParticipantID (Primary key)
+        /// </summary>
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         [Column(@"ParticipantID", Order = 2, TypeName = "int")]
         [Index(@"IX_ActivityParticipant_ParticipantID", 1, IsUnique = false, IsClustered = false)]
@@ -37,30 +47,38 @@ namespace AmaFon.CrowdAct.Net.DataLayer.Entities
         [Required]
         [Key]
         [Display(Name = "Participant ID")]
-        public int ParticipantId { get; set; } // ParticipantID (Primary key)
+        public int ParticipantId { get; set; }
 
+        /// <summary>
+        /// Gets or sets the ParticipantStatusId
+        /// </summary>
         [Column(@"ParticipantStatusID", Order = 3, TypeName = "int")]
         [Index(@"IX_ActivityParticipant_ParticipantStatusID", 1, IsUnique = false, IsClustered = false)]
         [Display(Name = "Participant status ID")]
-        public int? ParticipantStatusId { get; set; } // ParticipantStatusID
+        public int? ParticipantStatusId { get; set; }
 
         // Foreign keys
 
         /// <summary>
+        /// Gets or sets the Activity
         /// Parent Activity pointed by [ActivityParticipant].([ActivityId]) (FK_ActivityParticipant_Activity_ActivityID)
         /// </summary>
-        [ForeignKey("ActivityId"), Required] public virtual Activity Activity { get; set; } // FK_ActivityParticipant_Activity_ActivityID
+        [ForeignKey("ActivityId"), Required]
+        public virtual Activity Activity { get; set; }
 
         /// <summary>
+        /// Gets or sets the User
         /// Parent User pointed by [ActivityParticipant].([ParticipantId]) (FK_ActivityParticipant_User_ParticipantID)
         /// </summary>
-        [ForeignKey("ParticipantId"), Required] public virtual User User { get; set; } // FK_ActivityParticipant_User_ParticipantID
+        [ForeignKey("ParticipantId"), Required]
+        public virtual User User { get; set; }
 
         /// <summary>
+        /// Gets or sets the ParticipantStatus
         /// Parent ParticipantStatus pointed by [ActivityParticipant].([ParticipantStatusId]) (FK_ActivityParticipant_ParticipantStatus_ParticipantStatusID)
         /// </summary>
-        [ForeignKey("ParticipantStatusId")] public virtual ParticipantStatus ParticipantStatus { get; set; } // FK_ActivityParticipant_ParticipantStatus_ParticipantStatusID
+        [ForeignKey("ParticipantStatusId")]
+        public virtual ParticipantStatus ParticipantStatus { get; set; }
     }
-
 }
 // </auto-generated>

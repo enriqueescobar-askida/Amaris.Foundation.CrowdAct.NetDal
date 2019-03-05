@@ -11,45 +11,58 @@
 // TargetFrameworkVersion = 4.7
 #pragma warning disable 1591    //  Ignore "Missing XML Comment" warning
 
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-
 namespace AmaFon.CrowdAct.Net.DataLayer.Entities
 {
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
 
     // RequirementStatus
+    /// <summary>
+    /// Defines the <see cref="RequirementStatus" />
+    /// </summary>
     [Table("RequirementStatus", Schema = "dbo")]
     [System.CodeDom.Compiler.GeneratedCode("EF.Reverse.POCO.Generator", "2.37.2.0")]
     public class RequirementStatus
     {
+        /// <summary>
+        /// Gets or sets the Id
+        /// ID (Primary key)
+        /// </summary>
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column(@"ID", Order = 1, TypeName = "int")]
         [Index(@"PK_RequirementStatus", 1, IsUnique = true, IsClustered = true)]
         [Required]
         [Key]
         [Display(Name = "Id")]
-        public int Id { get; set; } // ID (Primary key)
+        public int Id { get; set; }
 
+        /// <summary>
+        /// Gets or sets the Label
+        /// Label (length: 450)
+        /// </summary>
         [Column(@"Label", Order = 2, TypeName = "nvarchar")]
         [Index(@"AK_RequirementStatus_Label", 1, IsUnique = true, IsClustered = false)]
         [Required(AllowEmptyStrings = true)]
         [MaxLength(450)]
         [StringLength(450)]
         [Display(Name = "Label")]
-        public string Label { get; set; } // Label (length: 450)
+        public string Label { get; set; }
 
         // Reverse navigation
 
         /// <summary>
+        /// Gets or sets the Requirements
         /// Child Requirements where [Requirement].[RequirementStatusID] point to this entity (FK_Requirement_RequirementStatus_RequirementStatusID)
         /// </summary>
-        public virtual System.Collections.Generic.ICollection<Requirement> Requirements { get; set; } // Requirement.FK_Requirement_RequirementStatus_RequirementStatusID
+        public virtual System.Collections.Generic.ICollection<Requirement> Requirements { get; set; }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="RequirementStatus"/> class.
+        /// </summary>
         public RequirementStatus()
         {
-            Requirements = new System.Collections.Generic.List<Requirement>();
+            this.Requirements = new System.Collections.Generic.List<Requirement>();
         }
     }
-
 }
 // </auto-generated>

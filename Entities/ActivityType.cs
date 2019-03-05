@@ -11,42 +11,54 @@
 // TargetFrameworkVersion = 4.7
 #pragma warning disable 1591    //  Ignore "Missing XML Comment" warning
 
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-
 namespace AmaFon.CrowdAct.Net.DataLayer.Entities
 {
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
 
     // ActivityType
+    /// <summary>
+    /// Defines the <see cref="ActivityType" />
+    /// </summary>
     [Table("ActivityType", Schema = "dbo")]
     [System.CodeDom.Compiler.GeneratedCode("EF.Reverse.POCO.Generator", "2.37.2.0")]
     public class ActivityType
     {
+        /// <summary>
+        /// Gets or sets the Id
+        /// ID (Primary key)
+        /// </summary>
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column(@"ID", Order = 1, TypeName = "int")]
-        [Index(@"PK_Type", 1, IsUnique = true, IsClustered = true)]
+        [Index(@"PK_ActivityType", 1, IsUnique = true, IsClustered = true)]
         [Required]
         [Key]
         [Display(Name = "Id")]
-        public int Id { get; set; } // ID (Primary key)
+        public int Id { get; set; }
 
+        /// <summary>
+        /// Gets or sets the Label
+        /// </summary>
         [Column(@"Label", Order = 2, TypeName = "nvarchar(max)")]
         [Required(AllowEmptyStrings = true)]
         [Display(Name = "Label")]
-        public string Label { get; set; } // Label
+        public string Label { get; set; }
 
         // Reverse navigation
 
         /// <summary>
-        /// Child Activities where [Activity].[TypeID] point to this entity (FK_Activity_Type_TypeID)
+        /// Gets or sets the Activities
+        /// Child Activities where [Activity].[ActivityTypeID] point to this entity (FK_Activity_ActivityType_ActivityTypeID)
         /// </summary>
-        public virtual System.Collections.Generic.ICollection<Activity> Activities { get; set; } // Activity.FK_Activity_Type_TypeID
+        public virtual System.Collections.Generic.ICollection<Activity> Activities { get; set; }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ActivityType"/> class.
+        /// </summary>
         public ActivityType()
         {
             Activities = new System.Collections.Generic.List<Activity>();
         }
     }
-
 }
 // </auto-generated>

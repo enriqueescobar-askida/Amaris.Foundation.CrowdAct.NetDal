@@ -11,116 +11,177 @@
 // TargetFrameworkVersion = 4.7
 #pragma warning disable 1591    //  Ignore "Missing XML Comment" warning
 
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-
 namespace AmaFon.CrowdAct.Net.DataLayer.Entities
 {
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
 
     // Activity
+    /// <summary>
+    /// Defines the <see cref="Activity" />
+    /// </summary>
     [Table("Activity", Schema = "dbo")]
     [System.CodeDom.Compiler.GeneratedCode("EF.Reverse.POCO.Generator", "2.37.2.0")]
     public class Activity
     {
+        /// <summary>
+        /// Gets or sets the Id
+        /// ID (Primary key)
+        /// </summary>
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column(@"ID", Order = 1, TypeName = "int")]
         [Index(@"PK_Activity", 1, IsUnique = true, IsClustered = true)]
         [Required]
         [Key]
         [Display(Name = "Id")]
-        public int Id { get; set; } // ID (Primary key)
+        public int Id { get; set; }
 
+        /// <summary>
+        /// Gets or sets the Name
+        /// </summary>
         [Column(@"Name", Order = 2, TypeName = "nvarchar(max)")]
         [Display(Name = "Name")]
-        public string Name { get; set; } // Name
+        public string Name { get; set; }
 
+        /// <summary>
+        /// Gets or sets the Description
+        /// </summary>
         [Column(@"Description", Order = 3, TypeName = "nvarchar(max)")]
         [Display(Name = "Description")]
-        public string Description { get; set; } // Description
+        public string Description { get; set; }
 
+        /// <summary>
+        /// Gets or sets the Picture
+        /// </summary>
         [Column(@"Picture", Order = 4, TypeName = "nvarchar(max)")]
         [Display(Name = "Picture")]
-        public string Picture { get; set; } // Picture
+        public string Picture { get; set; }
 
+        /// <summary>
+        /// Gets or sets the MaxParticipantNb
+        /// </summary>
         [Column(@"MaxParticipantNb", Order = 5, TypeName = "int")]
         [Required]
         [Display(Name = "Max participant nb")]
-        public int MaxParticipantNb { get; set; } // MaxParticipantNb
+        public int MaxParticipantNb { get; set; }
 
+        /// <summary>
+        /// Gets or sets the StartingDate
+        /// </summary>
         [Column(@"StartingDate", Order = 6, TypeName = "datetime2")]
         [Required]
         [DataType(DataType.DateTime)]
         [Display(Name = "Starting date")]
-        public System.DateTime StartingDate { get; set; } // StartingDate
+        public System.DateTime StartingDate { get; set; }
 
+        /// <summary>
+        /// Gets or sets the EndingDate
+        /// </summary>
         [Column(@"EndingDate", Order = 7, TypeName = "datetime2")]
         [Required]
         [DataType(DataType.DateTime)]
         [Display(Name = "Ending date")]
-        public System.DateTime EndingDate { get; set; } // EndingDate
+        public System.DateTime EndingDate { get; set; }
 
+        /// <summary>
+        /// Gets or sets the AddressId
+        /// </summary>
         [Column(@"AddressID", Order = 8, TypeName = "int")]
         [Index(@"IX_Activity_AddressID", 1, IsUnique = true, IsClustered = false)]
         [Display(Name = "Address ID")]
-        public int? AddressId { get; set; } // AddressID
+        public int? AddressId { get; set; }
 
+        /// <summary>
+        /// Gets or sets the CharityId
+        /// </summary>
         [Column(@"CharityID", Order = 9, TypeName = "int")]
         [Index(@"IX_Activity_CharityID", 1, IsUnique = false, IsClustered = false)]
         [Required]
         [Display(Name = "Charity ID")]
-        public int CharityId { get; set; } // CharityID
+        public int CharityId { get; set; }
 
+        /// <summary>
+        /// Gets or sets the FieldId
+        /// </summary>
         [Column(@"FieldID", Order = 10, TypeName = "int")]
         [Index(@"IX_Activity_FieldID", 1, IsUnique = false, IsClustered = false)]
         [Display(Name = "Field ID")]
-        public int? FieldId { get; set; } // FieldID
+        public int? FieldId { get; set; }
 
+        /// <summary>
+        /// Gets or sets the TypeId
+        /// </summary>
         [Column(@"TypeID", Order = 11, TypeName = "int")]
-        [Index(@"IX_Activity_TypeID", 1, IsUnique = false, IsClustered = false)]
         [Display(Name = "Type ID")]
-        public int? TypeId { get; set; } // TypeID
+        public int? TypeId { get; set; }
+
+        /// <summary>
+        /// Gets or sets the ActivityTypeId
+        /// </summary>
+        [Column(@"ActivityTypeID", Order = 12, TypeName = "int")]
+        [Index(@"IX_Activity_ActivityTypeID", 1, IsUnique = false, IsClustered = false)]
+        [Display(Name = "Activity type ID")]
+        public int? ActivityTypeId { get; set; }
 
         // Reverse navigation
 
         /// <summary>
+        /// Gets or sets the ActivityLanguages
         /// Child ActivityLanguages where [ActivityLanguage].[ActivityID] point to this entity (FK_ActivityLanguage_Activity_ActivityID)
         /// </summary>
-        public virtual System.Collections.Generic.ICollection<ActivityLanguage> ActivityLanguages { get; set; } // ActivityLanguage.FK_ActivityLanguage_Activity_ActivityID
+        public virtual System.Collections.Generic.ICollection<ActivityLanguage> ActivityLanguages { get; set; }
+
         /// <summary>
+        /// Gets or sets the ActivityParticipants
         /// Child ActivityParticipants where [ActivityParticipant].[ActivityID] point to this entity (FK_ActivityParticipant_Activity_ActivityID)
         /// </summary>
-        public virtual System.Collections.Generic.ICollection<ActivityParticipant> ActivityParticipants { get; set; } // ActivityParticipant.FK_ActivityParticipant_Activity_ActivityID
+        public virtual System.Collections.Generic.ICollection<ActivityParticipant> ActivityParticipants { get; set; }
+
         /// <summary>
+        /// Gets or sets the Requirements
         /// Child Requirements where [Requirement].[ActivityID] point to this entity (FK_Requirement_Activity_ActivityID)
         /// </summary>
-        public virtual System.Collections.Generic.ICollection<Requirement> Requirements { get; set; } // Requirement.FK_Requirement_Activity_ActivityID
+        public virtual System.Collections.Generic.ICollection<Requirement> Requirements { get; set; }
+
         /// <summary>
+        /// Gets or sets the Skills
         /// Child Skills (Many-to-Many) mapped by table [ActivitySkill]
         /// </summary>
-        public virtual System.Collections.Generic.ICollection<Skill> Skills { get; set; } // Many to many mapping
+        public virtual System.Collections.Generic.ICollection<Skill> Skills { get; set; }
 
         // Foreign keys
 
         /// <summary>
+        /// Gets or sets the ActivityType
+        /// Parent ActivityType pointed by [Activity].([ActivityTypeId]) (FK_Activity_ActivityType_ActivityTypeID)
+        /// </summary>
+        [ForeignKey("ActivityTypeId")]
+        public virtual ActivityType ActivityType { get; set; }
+
+        /// <summary>
+        /// Gets or sets the Address
         /// Parent Address pointed by [Activity].([AddressId]) (FK_Activity_Address_AddressID)
         /// </summary>
-        [ForeignKey("AddressId")] public virtual Address Address { get; set; } // FK_Activity_Address_AddressID
+        [ForeignKey("AddressId")]
+        public virtual Address Address { get; set; }
 
         /// <summary>
+        /// Gets or sets the Charity
         /// Parent Charity pointed by [Activity].([CharityId]) (FK_Activity_Charity_CharityID)
         /// </summary>
-        [ForeignKey("CharityId"), Required] public virtual Charity Charity { get; set; } // FK_Activity_Charity_CharityID
+        [ForeignKey("CharityId"), Required]
+        public virtual Charity Charity { get; set; }
 
         /// <summary>
+        /// Gets or sets the Category
         /// Parent Category pointed by [Activity].([FieldId]) (FK_Activity_Category_FieldID)
         /// </summary>
-        [ForeignKey("FieldId")] public virtual Category Category { get; set; } // FK_Activity_Category_FieldID
+        [ForeignKey("FieldId")]
+        public virtual Category Category { get; set; }
 
         /// <summary>
-        /// Parent ActivityType pointed by [Activity].([TypeId]) (FK_Activity_Type_TypeID)
+        /// Initializes a new instance of the <see cref="Activity"/> class.
         /// </summary>
-        [ForeignKey("TypeId")] public virtual ActivityType ActivityType { get; set; } // FK_Activity_Type_TypeID
-
         public Activity()
         {
             ActivityLanguages = new System.Collections.Generic.List<ActivityLanguage>();
@@ -129,6 +190,5 @@ namespace AmaFon.CrowdAct.Net.DataLayer.Entities
             Skills = new System.Collections.Generic.List<Skill>();
         }
     }
-
 }
 // </auto-generated>
