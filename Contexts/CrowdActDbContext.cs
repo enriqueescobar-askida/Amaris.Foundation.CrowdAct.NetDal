@@ -23,6 +23,64 @@ namespace AmaFon.CrowdAct.Net.DataLayer.Contexts
     [System.CodeDom.Compiler.GeneratedCode("EF.Reverse.POCO.Generator", "2.37.2.0")]
     public class CrowdActDbContext : System.Data.Entity.DbContext, ICrowdActDbContext
     {
+		    #region Constructor
+        /// <summary>
+        /// Initializes static members of the <see cref="CrowdActDbContext"/> class.
+        /// </summary>
+        static CrowdActDbContext()
+        {
+            System.Data.Entity.Database.SetInitializer<CrowdActDbContext>(null);
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CrowdActDbContext"/> class.
+        /// </summary>
+        public CrowdActDbContext()
+            : base("Name=CrowdActConnectionString")
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CrowdActDbContext"/> class.
+        /// </summary>
+        /// <param name="connectionString">The connectionString<see cref="string"/></param>
+        public CrowdActDbContext(string connectionString)
+            : base(connectionString)
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CrowdActDbContext"/> class.
+        /// </summary>
+        /// <param name="connectionString">The connectionString<see cref="string"/></param>
+        /// <param name="model">The model<see cref="System.Data.Entity.Infrastructure.DbCompiledModel"/></param>
+        public CrowdActDbContext(string connectionString, System.Data.Entity.Infrastructure.DbCompiledModel model)
+            : base(connectionString, model)
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CrowdActDbContext"/> class.
+        /// </summary>
+        /// <param name="existingConnection">The existingConnection<see cref="System.Data.Common.DbConnection"/></param>
+        /// <param name="contextOwnsConnection">The contextOwnsConnection<see cref="bool"/></param>
+        public CrowdActDbContext(System.Data.Common.DbConnection existingConnection, bool contextOwnsConnection)
+            : base(existingConnection, contextOwnsConnection)
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CrowdActDbContext"/> class.
+        /// </summary>
+        /// <param name="existingConnection">The existingConnection<see cref="System.Data.Common.DbConnection"/></param>
+        /// <param name="model">The model<see cref="System.Data.Entity.Infrastructure.DbCompiledModel"/></param>
+        /// <param name="contextOwnsConnection">The contextOwnsConnection<see cref="bool"/></param>
+        public CrowdActDbContext(System.Data.Common.DbConnection existingConnection, System.Data.Entity.Infrastructure.DbCompiledModel model, bool contextOwnsConnection)
+            : base(existingConnection, model, contextOwnsConnection)
+        {
+        }
+		    #endregion
+
         /// <summary>
         /// Gets or sets the AccountStatus
         /// </summary>
@@ -114,62 +172,6 @@ namespace AmaFon.CrowdAct.Net.DataLayer.Contexts
         public System.Data.Entity.DbSet<User> Users { get; set; }
 
         /// <summary>
-        /// Initializes static members of the <see cref="CrowdActDbContext"/> class.
-        /// </summary>
-        static CrowdActDbContext()
-        {
-            System.Data.Entity.Database.SetInitializer<CrowdActDbContext>(null);
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="CrowdActDbContext"/> class.
-        /// </summary>
-        public CrowdActDbContext()
-            : base("Name=CrowdActConnectionString")
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="CrowdActDbContext"/> class.
-        /// </summary>
-        /// <param name="connectionString">The connectionString<see cref="string"/></param>
-        public CrowdActDbContext(string connectionString)
-            : base(connectionString)
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="CrowdActDbContext"/> class.
-        /// </summary>
-        /// <param name="connectionString">The connectionString<see cref="string"/></param>
-        /// <param name="model">The model<see cref="System.Data.Entity.Infrastructure.DbCompiledModel"/></param>
-        public CrowdActDbContext(string connectionString, System.Data.Entity.Infrastructure.DbCompiledModel model)
-            : base(connectionString, model)
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="CrowdActDbContext"/> class.
-        /// </summary>
-        /// <param name="existingConnection">The existingConnection<see cref="System.Data.Common.DbConnection"/></param>
-        /// <param name="contextOwnsConnection">The contextOwnsConnection<see cref="bool"/></param>
-        public CrowdActDbContext(System.Data.Common.DbConnection existingConnection, bool contextOwnsConnection)
-            : base(existingConnection, contextOwnsConnection)
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="CrowdActDbContext"/> class.
-        /// </summary>
-        /// <param name="existingConnection">The existingConnection<see cref="System.Data.Common.DbConnection"/></param>
-        /// <param name="model">The model<see cref="System.Data.Entity.Infrastructure.DbCompiledModel"/></param>
-        /// <param name="contextOwnsConnection">The contextOwnsConnection<see cref="bool"/></param>
-        public CrowdActDbContext(System.Data.Common.DbConnection existingConnection, System.Data.Entity.Infrastructure.DbCompiledModel model, bool contextOwnsConnection)
-            : base(existingConnection, model, contextOwnsConnection)
-        {
-        }
-
-        /// <summary>
         /// The Dispose
         /// </summary>
         /// <param name="disposing">The disposing<see cref="bool"/></param>
@@ -192,6 +194,7 @@ namespace AmaFon.CrowdAct.Net.DataLayer.Contexts
             return (sqlValue == null || sqlValue == System.DBNull.Value);
         }
 
+        #region OnModel
         /// <summary>
         /// The OnModelCreating
         /// </summary>
@@ -248,6 +251,7 @@ namespace AmaFon.CrowdAct.Net.DataLayer.Contexts
             modelBuilder.Configurations.Add(new UserConfiguration(schema));
             return modelBuilder;
         }
+        #endregion
     }
 }
 // </auto-generated>
